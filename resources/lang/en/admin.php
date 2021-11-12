@@ -1,0 +1,56 @@
+<?php
+
+return [
+
+    'welcome'        => 'Welcome',
+    'languages'      => 'Languages',
+    'edit_profile'   => 'Edit profile',
+    'logout'         => 'Logout',
+    'home'           => 'Home',
+    'name'           => 'Name',
+    'email'          => 'Email',
+    'new_password'   => 'New password',
+    'confirm_password' => 'Confirm password',
+    'save'           => 'Save',
+    'admin_login'    => 'Admin login',
+    'login'          => 'login', 
+    'home'           => 'Home',   
+    'users'          => 'Users', 
+    'id_number'      => 'ID number',  
+    'phone'          => 'Phone',  
+    'birthrate'      => 'Date of birth',
+    'age'            => 'Age',
+    'gender'         => 'Gender',
+    'ID_image'       => 'ID image',
+    'action'         => 'Action',
+    'details'        => 'Details',
+    'country'        => 'Country',
+    'contact'        => 'Visitor messages',
+    'type'           => 'Message type',
+    'image'          => 'Image',
+    'message'        => 'Message',
+    'countries'      => 'Countries',
+    'reset'          => 'Reseat',
+    'save'           => 'Save',
+    'create_country' => 'Create country',
+    'show_countries' => 'Show countries',
+    'edit'           => 'Edit',
+    'ar'             => 'Arabic language',
+    'en'             => 'English language',
+    'delete'         => 'Delete',
+    'added'          => 'Data added successfully',
+    'coun_not_found' => 'Country not found',
+    'detelted_sucess' => 'Data deleted successfully',
+    'try_again'       => 'There is a problem you can try in other time',
+
+
+    'error_message' =>[
+        'name_required'         =>  'Name is required',
+        'name_required_ar'      =>  'Name is required in arabic',
+        'name_required_en'      =>  'Name is required in english',
+        'email_required'        =>  'Email us required',
+        'password_confirmed'    =>  'Password must be confirmed',
+    ],
+
+
+];
