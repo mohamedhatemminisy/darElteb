@@ -49,7 +49,24 @@ return [
         'name_required_en'      =>  'الاسم مطلوب باللغة الانجليزية',
         'email_required'        =>  'البريد الاكتروني مطلوب',
         'password_confirmed'    =>  'الرقم السري مطلوب',
+        'description_required_ar'      =>  'الوصف مطلوب باللغة العربية',
+        'description_required_en'      =>  'الوصف مطلوب باللغة الانجليزية',
+        'type_required_ar'      =>  'النوع مطلوب باللغة العربية',
+        'type_required_en'      =>  'النوع مطلوب باللغة الانجليزية',
+        'duration_required'     =>  'المدة مطلوبة',
+        'price_required'        =>  'السعر مطلوب',
     ],
+
+
+    'tests'          => 'الاختبارات',
+    'create_test'    => 'اضافة اختبار',
+    'show_tests'     => 'عرض الاختبارات',
+    'price'          => 'السعر',
+    'duration'       => 'المدة',
+    'description'    => 'الوصف',
+    'type'           => 'النوع',
+    'image'          => 'الصورة',
+    'update'         => 'تحديث',
 
 
 ];

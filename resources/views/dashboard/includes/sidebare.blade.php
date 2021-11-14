@@ -31,6 +31,21 @@
             </ul>
         </li>
 
+
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">{{trans('admin.tests')}}</span></a>
+            <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('tests.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        {{trans('admin.create_test')}}</a>
+
+                </li>
+                <li><a class="menu-item" href="{{route('tests.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        {{trans('admin.show_tests')}}</a>
+
+                </li>
+            </ul>
+        </li>
+
         </ul>
     </div>
 </div>

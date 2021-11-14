@@ -40,6 +40,9 @@ Route::group([
         Route::post('countries_update/{id}','App\Http\Controllers\Dashboard\CountryController@update')
         ->name('countries_update');
  
+        Route::resource('tests','App\Http\Controllers\Dashboard\TestController');
+        Route::get('/tests/delete/{id}','App\Http\Controllers\Dashboard\TestController@delete')->name('tests.delete');
+ 
 
         
     });

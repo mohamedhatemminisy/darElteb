@@ -46,11 +46,28 @@ return [
 
     'error_message' =>[
         'name_required'         =>  'Name is required',
+        'duration_required'     =>  'Duration is required',
+        'price_required'        =>  'Price is required',
         'name_required_ar'      =>  'Name is required in arabic',
         'name_required_en'      =>  'Name is required in english',
+        'description_required_ar'      =>  'Description is required in arabic',
+        'description_required_en'      =>  'Description is required in english',
+        'type_required_ar'      =>  'Type is required in arabic',
+        'type_required_en'      =>  'Type is required in english',
         'email_required'        =>  'Email us required',
         'password_confirmed'    =>  'Password must be confirmed',
+        
     ],
 
+
+    'tests'          => 'Tests',
+    'create_test'    => 'Create test',
+    'show_tests'     => 'Show tests',
+    'price'          => 'Price',
+    'duration'       => 'Duration',
+    'description'    => 'Description',
+    'type'           => 'Type',
+    'image'          => 'Image',
+    'update'         => 'Update',
 
 ];

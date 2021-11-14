@@ -56,6 +56,8 @@
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.css')}}">
+    <script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script>
+
     <!-- END Custom CSS-->
      @yield('style')
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
@@ -82,7 +84,6 @@
 @include('dashboard.includes.footer')
 
 <!-- end footer -->
-
  
 <script src="//js.pusher.com/3.1/pusher.min.js"></script>
 
@@ -151,6 +152,8 @@
         notificationsCount += 1;
         $('.notification-counter').text(notificationsCount)
     });
+
+
 </script>
  
 @yield('script')
