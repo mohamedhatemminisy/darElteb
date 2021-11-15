@@ -68,15 +68,20 @@
                                                         <td>
                                                         <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
+                                                               
                                                                 <a href="{{route('tests.edit',$test -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{trans('admin.edit')}}</a>
+                                                                 class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2 " title="@lang('general.edit')">
+                                                                            <i class="fa fa-edit"></i>
+                                                                        </a>
 
                                                                    <a href="{{route('tests.show',$test->id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width
-                                                                    box-shadow-3 mr-1 mb-1">{{trans('admin.details')}} </a>
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2 "><i class="fas fa-eye"></i></a>
 
                                                                 <a href="{{route('tests.delete',$test -> id)}}"
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">{{trans('admin.delete')}}</a>
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2 "><i class="fas fa-trash-alt"></i></a>
 
                                                             </div>
                                                         </td>

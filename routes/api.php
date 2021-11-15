@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware('auth:api')->group(function () {
     //contact us
     Route::post('/contact',[ContactController::class, 'contact']);
 
+    Route::get('/test',[TestController::class, 'test']);
 
 
 });
