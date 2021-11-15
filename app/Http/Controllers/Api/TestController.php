@@ -20,6 +20,7 @@ class TestController extends Controller
                 $arr['type']=  $test->translate($lang)->type;
                 $arr['duration']=  $test->duration;
                 $arr['price']=  $test->price;
+                $arr['image']=  url('/').'/'.$test->image;
                 $data[] = $arr;
             }
             $page = $request->get('page', 1);
