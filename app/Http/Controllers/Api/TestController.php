@@ -16,8 +16,8 @@ class TestController extends Controller
             foreach($tests as $test){
                 $arr['id']=  $test->id;
                 $arr['name']=  $test->translate($lang)->name;
-                $arr['description']=  $test->translate($lang)->description;
-                $arr['type']=  $test->translate($lang)->type;
+                $arr['description']=  strip_tags($test->translate($lang)->description);
+                $arr['type']=  strip_tags($test->translate($lang)->type);
                 $arr['duration']=  $test->duration;
                 $arr['price']=  $test->price;
                 $arr['image']=  url('/').'/'.$test->image;
