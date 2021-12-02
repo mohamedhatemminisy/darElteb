@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'updated'       => 'Data updated successfully',
     'welcome'        => 'Welcome',
     'languages'      => 'Languages',
     'edit_profile'   => 'Edit profile',
@@ -56,6 +56,7 @@ return [
         'type_required_en'      =>  'Type is required in english',
         'email_required'        =>  'Email us required',
         'password_confirmed'    =>  'Password must be confirmed',
+        'csv_required'          =>  'CSV required',
         
     ],
 
@@ -69,5 +70,7 @@ return [
     'type'           => 'Type',
     'image'          => 'Image',
     'update'         => 'Update',
+    'wrong_data'     => 'Your data is not correct',
+    'upload_csv'     => 'Upload csv',
 
 ];

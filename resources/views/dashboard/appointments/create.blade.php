@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -9,10 +10,10 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">{{trans('admin.home')}} </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> 
-                                {{trans('admin.tests')}} </a>
+                                <li class="breadcrumb-item"><a href="{{route('appointments.index')}}"> 
+                                Appointments </a>
                                 </li>
-                                <li class="breadcrumb-item active">{{trans('admin.create_country')}}
+                                <li class="breadcrumb-item active">Create appointment
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> {{trans('admin.create_country')}} </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> Create appointment </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -43,33 +44,41 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('countries.store')}}"
+                                              action="{{route('appointments.store')}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-body">
                                                 <div class="tab-content">
-                                                    @foreach (config('translatable.locales') as $key => $locale)
-                                                        <div class="tab-pane fade show @if($key == 0) active @endif" id="{{$locale}}" role="tabpanel">
-                                                            <div class="col form-group">
-                                                                <label>@lang('admin.name') (@lang('admin.'.$locale))<span class="text-danger">*</span></label>
-                                                                <input
-                                                                    type="text"
-                                                                    name="{{ $locale.'[name]' }}"
-                                                                    id="{{ $locale . '[name]' }}"
-                                                                    placeholder="@lang('admin.name')"
-                                                                    class="form-control @error("$locale.name" ) is-invalid @enderror"
-                                                                    value="{{ old($locale.'.name') }}">
-                                                                    @error("$locale.name" )
-                                                                    <span class="text-danger">{{$message}}</span>
-                                                                    @enderror
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
+                                                <div class="row px-8">
+                                                    <div class="col form-group">
+                                                        <label>Day <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text" value="{{ old('day') }}" name="day">
+                                                        @error("day" )
+                                                            <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                     </div>
                                                 </div>
-
+                                                <div class="row px-8">
+                                                    <div class="col form-group">
+                                                        <label>Date <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="date" value="{{ old('date') }}" name="date">
+                                                        @error("date" )
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div> 
+                                                <div class="row px-8">
+                                                    <div class="col form-group">
+                                                        <label>Time <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="time" value="{{ old('time') }}" name="time">
+                                                        @error("time" )
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div> 
                                             </div>
-
+                                            </div>
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
@@ -91,17 +100,13 @@
             </div>
         </div>
     </div>
-
 @stop
-
 @section('script')
-
     <script>
         $('input:radio[name="type"]').change(
             function(){
                 if (this.checked && this.value == '2') {  // 1 if main cat - 2 if sub cat
                     $('#cats_list').removeClass('hidden');
-
                 }else{
                     $('#cats_list').addClass('hidden');
                 }

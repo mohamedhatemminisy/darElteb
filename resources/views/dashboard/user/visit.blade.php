@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">{{trans('admin.tests')}} </h3>
+                    <h3 class="content-header-title">Visits</h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{trans('admin.tests')}}
+                                <li class="breadcrumb-item active">Visits
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> {{trans('admin.tests')}} </h4>
+                                    <h4 class="card-title"> Visites</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,41 +48,32 @@
                                             class="table display nowrap table-striped table-bordered">
                                             <thead class="">
                                             <tr>
-                                                <th>#</th>
-                                                <th>{{trans('admin.name')}}</th>
-                                                <th>{{trans('admin.price')}}</th>
-                                                <th>{{trans('admin.duration')}}</th>
-                                                 <th>{{trans('admin.action')}}</th>
+                                                <th>Time</th>
+                                                <th>Date</th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Created at</th>
+                                                <th>{{trans('admin.action')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($tests )
-                                                @foreach($tests as $key => $test)
+                                            @isset($visits )
+                                                @foreach($visits as $visit)
                                                     <tr>
-                                                        <td>{{ $key +1}}</td>
-                                                        <td>{{$test ->translate('en')-> name}}</td>
-                                                        <td>{{$test -> price}}</td>
-                                                        <td>{{$test -> duration}}</td>
-                                       
+                                                        <td>{{$visit -> time}}</td>
+                                                        <td>{{$visit -> date}}</td>
+                                                        <td>{{$visit -> name}}</td>
+                                                        <td>{{$visit -> type}}</td>
+                                                        <td>{{$visit -> created_at}}</td>
                                                         <td>
                                                         <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                               
-                                                                <a href="{{route('tests.edit',$test -> id)}}"
-                                                                 class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2 " title="@lang('admin.edit')">
-                                                                            <i class="fa fa-edit"></i>
-                                                                        </a>
-
-                                                                   <a href="{{route('tests.show',$test->id)}}"
+                                                              
+                                                                    <a href="{{route('visit.details',$visit->id)}}"
                                                                    class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2 "  title="{{trans('admin.details')}}"><i class="fas fa-eye"></i></a>
-
-                                                                <a href="{{route('tests.delete',$test -> id)}}"
-                                                                   class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2 "  title="{{trans('admin.delete')}}"><i class="fas fa-trash-alt"></i></a>
-
+                                                                        btn-icon mr-2" title="{{trans('admin.details')}}">
+                                                                        <i class="fas fa-eye"></i></a>
                                                             </div>
                                                         </td>
                         
@@ -94,7 +85,7 @@
                                             </tbody>
                                         </table>
                                         <div class="justify-content-center d-flex">
-                                        {{ $tests->links('vendor.pagination.custom') }}
+                                        {{ $visits->links('vendor.pagination.custom') }}
 
                                         </div>
                                     </div>

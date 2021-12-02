@@ -67,10 +67,10 @@
                                                         <td>
                                                         <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('contact.details',$contact->id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width
-                                                                    box-shadow-3 mr-1 mb-1">{{trans('admin.details')}} </a>
-                                                            </div>
+                                                                    <a href="{{route('contact.details',$contact->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="{{trans('admin.details')}}"><i class="fas fa-eye"></i></a>
+                                                                </div>
                                                         </td>
                         
                                                     </tr>

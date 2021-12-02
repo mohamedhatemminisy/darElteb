@@ -27,6 +27,10 @@ Route::group([
         Route::get('/users','App\Http\Controllers\Dashboard\UserController@index')->name('users');
         Route::get('/users/details/{id}','App\Http\Controllers\Dashboard\UserController@details')
         ->name('user.details');
+        Route::get('/users/addresses/{id}','App\Http\Controllers\Dashboard\UserController@addresses')
+        ->name('user.addresses');
+        Route::get('/users/reservations/{id}','App\Http\Controllers\Dashboard\UserController@reservations')
+        ->name('user.reservations');
 
         Route::group(['prefix' => 'contact'] ,function(){
             Route::get('/','App\Http\Controllers\Dashboard\ContactController@index')
@@ -41,7 +45,31 @@ Route::group([
         ->name('countries_update');
  
         Route::resource('tests','App\Http\Controllers\Dashboard\TestController');
+        Route::get('upload_csv','App\Http\Controllers\Dashboard\TestController@upload_csv')->name('upload_csv');
+        Route::post('upload_csv','App\Http\Controllers\Dashboard\TestController@save_csv')->name('upload.csv');
         Route::get('/tests/delete/{id}','App\Http\Controllers\Dashboard\TestController@delete')->name('tests.delete');
+     
+        Route::resource('appointments','App\Http\Controllers\Dashboard\AppointmentController');
+        Route::get('/appointments/delete/{id}','App\Http\Controllers\Dashboard\AppointmentController@delete')
+        ->name('appointments.delete');
+        Route::get('/reservations','App\Http\Controllers\Dashboard\ReservationController@reservations')
+        ->name('reservations');
+ 
+        Route::get('/reservation/details/{id}','App\Http\Controllers\Dashboard\ReservationController@reservationDetails')
+        ->name('visit.details');
+ 
+        Route::get('/reservation/confirm/{id}','App\Http\Controllers\Dashboard\ReservationController@reservationConfirm')
+        ->name('visit.confirm');
+ 
+        Route::get('/reservation/result/{id}','App\Http\Controllers\Dashboard\ReservationController@reservationResult')
+        ->name('visit.result');
+ 
+ 
+        Route::get('/show/result/{id}','App\Http\Controllers\Dashboard\ReservationController@showResult')
+        ->name('show.result');
+ 
+        Route::post('/reservation/store','App\Http\Controllers\Dashboard\ReservationController@resultStore')
+        ->name('result.store');
  
 
         

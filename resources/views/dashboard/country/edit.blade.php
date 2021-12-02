@@ -1,7 +1,6 @@
 
 @extends('layouts.admin')
 @section('content')
-
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -9,11 +8,14 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">{{trans('admin.home')}} </a>
+                                <li class="breadcrumb-item"><a
+                                 href="{{route('dashboard.index')}}">{{trans('admin.home')}} </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('countries.index')}}"> {{trans('admin.countries')}} </a>
+                                <li class="breadcrumb-item"><a href="{{route('countries.index')}}">
+                                     {{trans('admin.tests')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active"> {{trans('admin.edit')}} - {{$country -> name}}
+                                <li class="breadcrumb-item active">
+                                     {{trans('admin.edit')}} - {{$country -> name}}
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +29,8 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> {{trans('admin.edit')}} {{trans('admin.countries')}} </h4>
+                                    <h4 class="card-title" id="basic-layout-form">
+                                         {{trans('admin.edit')}} {{trans('admin.countries')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -38,15 +41,6 @@
                                             <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
-                                    <ul class="nav nav-tabs nav-bold nav-tabs-line">
-                                        @foreach (config('translatable.locales') as $key => $locale)
-                                        <li class="nav-item">
-                                            <a class="nav-link  @if($key == 0) active @endif" data-toggle="tab"
-                                            href="{{"#" . $locale}}">@lang('admin.'.$locale)</a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-
                                 </div>
                                 @include('dashboard.includes.alerts.success')
                                 @include('dashboard.includes.alerts.errors')
@@ -55,7 +49,6 @@
                                     <form action="{{Route('countries_update',$country->id)}}"
                                      method="post" enctype="multipart/form-data">
                                             @csrf
-
                                             <div class="card-body">
                                                 <div class="tab-content">
                                                     @foreach (config('translatable.locales') as $key => $locale)
@@ -81,10 +74,10 @@
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> تراجع
+                                                    <i class="ft-x"></i> Reset
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> تحديث
+                                                    <i class="la la-check-square-o"></i> Save
                                                 </button>
                                             </div>
                                         </form>

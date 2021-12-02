@@ -1,7 +1,6 @@
 
 @extends('layouts.admin')
 @section('content')
-
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -10,7 +9,7 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active">{{trans('admin.countries')}}
                                 </li>
@@ -64,12 +63,17 @@
                                                         <td>
                                                         <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('countries.edit',$country -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{trans('admin.edit')}}</a>
 
+
+                                                                   <a href="{{route('countries.edit',$country -> id)}}"
+                                                                 class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2 " title="@lang('admin.edit')">
+                                                                            <i class="fa fa-edit"></i>
+                                                                        </a>
 
                                                                 <a href="{{route('countries.delete',$country -> id)}}"
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">{{trans('admin.delete')}}</a>
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2 "  title="{{trans('admin.delete')}}"><i class="fas fa-trash-alt"></i></a>
 
                                                             </div>
                                                         </td>

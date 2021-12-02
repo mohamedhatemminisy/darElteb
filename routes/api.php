@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\TestController;
+use App\Http\Controllers\Api\VisitController;
+use App\Http\Controllers\Api\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +31,15 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/profile',[UserController::class, 'getProfileData']);
     Route::post('/update_device_token',[UserController::class, 'update_device_token']);
 
-    //contact us
     Route::post('/contact',[ContactController::class, 'contact']);
-
+    Route::post('/add_address',[VisitController::class, 'add_address']);
+    Route::get('/user_addresses',[VisitController::class, 'user_addresses']);
     Route::get('/test',[TestController::class, 'test']);
-
+    Route::get('/appointments',[TestController::class, 'appointments']);
+    Route::post('/homeReservation',[ReservationController::class, 'home_reservation']);
+    Route::post('/rate',[ReservationController::class, 'rate']);
+    Route::get('/UserHomeReservation',[ReservationController::class, 'UserHomeReservation']);
+    Route::get('/CancelReservation',[ReservationController::class, 'CancelReservation']);
+    Route::get('/DeleteReservation',[ReservationController::class, 'DeleteReservation']);
 
 });

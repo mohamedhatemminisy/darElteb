@@ -37,11 +37,37 @@
             <ul class="menu-content">
             <li><a class="menu-item" href="{{route('tests.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
                         {{trans('admin.create_test')}}</a>
-
+                </li>
+            <li><a class="menu-item" href="{{route('upload_csv')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        {{trans('admin.upload_csv')}}</a>
                 </li>
                 <li><a class="menu-item" href="{{route('tests.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
                         {{trans('admin.show_tests')}}</a>
 
+                </li>
+            </ul>
+        </li>
+
+
+
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">Appointments</span></a>
+            <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('appointments.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        Create appointment</a>
+                </li>
+                <li><a class="menu-item" href="{{route('appointments.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        Show appointments</a>
+
+                </li>
+            </ul>
+        </li>
+
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">Reservations</span></a>
+            <ul class="menu-content">
+                <li><a class="menu-item" href="{{route('reservations')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                Reservations</a>
                 </li>
             </ul>
         </li>

@@ -67,9 +67,18 @@
                                                         <td>
                                                         <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('user.details',$user->id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width
-                                                                    box-shadow-3 mr-1 mb-1">{{trans('admin.details')}} </a>
+                                                              
+                                                                    <a href="{{route('user.details',$user->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="{{trans('admin.details')}}"><i class="fas fa-eye"></i></a>
+                                                                 
+                                                                        <a href="{{route('user.addresses',$user->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="Address"><i class="fas fa-map-marker"></i></a>
+
+                                                                        <a href="{{route('user.reservations',$user->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="Reservations"><i class="fas fa-history"></i></a>
                                                             </div>
                                                         </td>
                         

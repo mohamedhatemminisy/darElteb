@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Test;
 use Illuminate\Http\Request;
 use App\Http\Requests\Dashboard\TestRequest;
+use App\Http\Requests\Dashboard\CSVRequest;
 
 class TestController extends Controller
 {
@@ -125,4 +126,53 @@ class TestController extends Controller
             ->with(['error' => trans('admin.try_again')]);
         }
     }
+
+    public function upload_csv(){
+        return view('dashboard.test.csv');
+    }
+
+    public function save_csv(CSVRequest $request){
+        $url = upload_image($request->file('csv_file'), 'csv_file');
+        $this->store_in_db( url($url));
+
+    }
+    function store_in_db($filename = '', $delimiter = ';')
+    {
+        header("Content-Type: text/html; charset=utf-8");
+    
+        $header = null;
+        $data = array();
+        if (($handle = fopen($filename, 'r')) !== false)
+        {
+    
+            while (($row = fgetcsv($handle, 1000, $delimiter)) !== false)
+            {
+                 $data[] = $row;
+            }
+            fclose($handle);
+        }
+        dd($data);
+        array_shift($data);
+       foreach($data as $da ){
+           $product = new Product();
+           $product->description = $this->stripAccents($da[0]) ;
+           if($product->description[0] == 'b'){
+              $product->Pièce ="boîte" ;
+           }elseif($product->description[0] == 'm'){
+              $product->Pièce ="moteur" ;
+           }
+          $product->Marque = $this->stripAccents($da[1]);
+          $product->Modèle = $this->stripAccents($da[2]);
+          $product->Energie = $this->stripAccents($da[3]);
+          $product->MiseEnCirculation = $this->stripAccents($da[4]);
+          $product->CodeMoteur = $this->stripAccents($da[5]);
+          $product->TypeMine = $this->stripAccents($da[6]);
+          $product->Finition = $this->stripAccents($da[7]);
+          $product->status = "normal";
+          $product->save();
+       }
+        return count($data);
+    }
+    
+
 }

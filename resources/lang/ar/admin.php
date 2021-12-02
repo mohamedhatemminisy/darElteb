@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'updated'        => 'تم تحديث البيانات بنجاح',
     'welcome'        => 'مرحبا',
     'languages'      => 'اللغات',
     'edit_profile'   => 'تعديل الملف الشخصي',
@@ -55,6 +55,7 @@ return [
         'type_required_en'      =>  'النوع مطلوب باللغة الانجليزية',
         'duration_required'     =>  'المدة مطلوبة',
         'price_required'        =>  'السعر مطلوب',
+        'csv_required'          =>  'ملف الاختبارات مطلوب',
     ],
 
 
@@ -67,6 +68,8 @@ return [
     'type'           => 'النوع',
     'image'          => 'الصورة',
     'update'         => 'تحديث',
+    'wrong_data'     => 'البيانات غير صحيحة',
+    'upload_csv'     => 'تحميل ملف csv',
 
 
 ];

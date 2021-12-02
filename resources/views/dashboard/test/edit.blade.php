@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> {{trans('admin.edit')}} {{trans('admin.countries')}} </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> {{trans('admin.edit')}} {{$test->name}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -38,15 +38,6 @@
                                             <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
-                                    <ul class="nav nav-tabs nav-bold nav-tabs-line">
-                                        @foreach (config('translatable.locales') as $key => $locale)
-                                        <li class="nav-item">
-                                            <a class="nav-link  @if($key == 0) active @endif" data-toggle="tab"
-                                            href="{{"#" . $locale}}">@lang('admin.'.$locale)</a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-
                                 </div>
                                 @include('dashboard.includes.alerts.success')
                                 @include('dashboard.includes.alerts.errors')
@@ -90,7 +81,7 @@
                                                                     CKEDITOR.replace('{{ $locale }}.editor1', {
                                                                     extraPlugins: 'bidi',
                                                                     // Setting default language direction to right-to-left.
-                                                                    contentsLangDirection: 'rtl',
+                                                                    contentsLangDirection: 'ltr',
                                                                     height: 270,
                                                                     scayt_customerId: '1:Eebp63-lWHbt2-ASpHy4-AYUpy2-fo3mk4-sKrza1-NsuXy4-I1XZC2-0u2F54-aqYWd1-l3Qf14-umd',
                                                                     scayt_sLang: 'auto',
@@ -113,7 +104,7 @@
                                                                     CKEDITOR.replace('{{ $locale }}.editor2', {
                                                                     extraPlugins: 'bidi',
                                                                     // Setting default language direction to right-to-left.
-                                                                    contentsLangDirection: 'rtl',
+                                                                    contentsLangDirection: 'ltr',
                                                                     height: 270,
                                                                     scayt_customerId: '1:Eebp63-lWHbt2-ASpHy4-AYUpy2-fo3mk4-sKrza1-NsuXy4-I1XZC2-0u2F54-aqYWd1-l3Qf14-umd',
                                                                     scayt_sLang: 'auto',
