@@ -61,8 +61,19 @@ Route::group([
         Route::get('/reservation/confirm/{id}','App\Http\Controllers\Dashboard\ReservationController@reservationConfirm')
         ->name('visit.confirm');
  
+        Route::get('/reservation/accept/{id}','App\Http\Controllers\Dashboard\ReservationController@reservationAccept')
+        ->name('visit.accept');
+
         Route::get('/reservation/result/{id}','App\Http\Controllers\Dashboard\ReservationController@reservationResult')
         ->name('visit.result');
+
+        Route::post('/reservation/accept','App\Http\Controllers\Dashboard\ReservationController@reservationAcceptPost')
+        ->name('result.accept');
+ 
+ 
+        Route::resource('offers','App\Http\Controllers\Dashboard\OfferController');
+        Route::get('/offers/delete/{id}','App\Http\Controllers\Dashboard\OfferController@destroy')
+        ->name('offers.delete');
  
  
         Route::get('/show/result/{id}','App\Http\Controllers\Dashboard\ReservationController@showResult')

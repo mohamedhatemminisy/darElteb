@@ -49,9 +49,10 @@
                                             <thead class="">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Date</th>
                                                 <th>Name</th>
+                                                <th>Phone</th>
                                                 <th>Type</th>
+                                                <th>location</th>
                                                 <th>Rate</th>
                                                 <th>{{trans('admin.action')}}</th>
                                             </tr>
@@ -62,10 +63,11 @@
                                                 @foreach($visits as $key => $visit)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
-                                                        <td>{{$visit -> date}}</td>
                                                         <td>{{$visit -> name}}</td>
+                                                        <td>{{$visit -> phone}}</td>
+                                                        <td>{{$visit -> choice}}</td>
                                                         <td>{{$visit -> type}}</td>
-                                                        <td>{{$visit -> rate ? $visit -> rate : 'Not rated yest'}}</td>
+                                                        <td>{{$visit -> rate ? $visit -> rate ->rate : 'Not rated yest'}}</td>
                                                         <td>
                                                         <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
@@ -74,12 +76,17 @@
                                                                    class="btn btn-sm btn-clean
                                                                         btn-icon mr-2" title="{{trans('admin.details')}}">
                                                                         <i class="fas fa-eye"></i></a>
-
+                                                                    @if($visit->accept == null)
                                                                     <a href="{{route('visit.confirm',$visit->id)}}"
                                                                    class="btn btn-sm btn-clean
                                                                         btn-icon mr-2" title="Confirm Reservation">
                                                                         <i class="fas fa-check-square"></i></a>
-
+                                                                    @else
+                                                                    <a href="{{route('visit.accept',$visit->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="Show Acceptance">
+                                                                        <i class="fas fa-check-square" style="color: red;"></i></a>
+                                                                 @endif
                                                                         @php
                                                                         $result = App\Models\Result::where('visit_id',$visit->id)->first();
                                                                         @endphp

@@ -64,6 +64,19 @@
         </li>
 
         <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">Offers</span></a>
+            <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('offers.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        Create offer</a>
+                </li>
+                <li><a class="menu-item" href="{{route('offers.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        Show offers</a>
+
+                </li>
+            </ul>
+        </li>
+
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
          data-i18n="nav.horz_nav.main">Reservations</span></a>
             <ul class="menu-content">
                 <li><a class="menu-item" href="{{route('reservations')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">

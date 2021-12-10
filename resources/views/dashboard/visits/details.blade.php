@@ -47,21 +47,38 @@
                                         
                                     
                                     <div class="col form-group">
- 
                                         <label>Time</label>
                                         <p class="alert alert-info"
-                                         style="background-color:rgb(26,60,119)">{{ $visit->time }}</p>
+                                         style="background-color:rgb(26,60,119)">
+                                         @if($visit->type == 'lab')
+                                        {{ $visit->appointment->time}}
+                                         @else
+                                         {{ $visit->time }}
+                                         @endif
+                                        </p>
                                 
                                     </div>
 
                                     <div class="col form-group">
- 
                                         <label>Date</label>
                                         <p class="alert alert-info" 
-                                        style="background-color:rgb(26,60,119)">{{ $visit->date }}</p>
-                                
+                                        style="background-color:rgb(26,60,119)">
+                                        @if($visit->type == 'lab')
+                                        {{ $visit->appointment->date}}
+                                         @else
+                                         {{ $visit->date }}
+                                         @endif
+                                        </p>
                                     </div>
-                                       
+                                    @if($visit->type == 'lab')
+                                    <div class="col form-group">
+                                        <label>Day</label>
+                                        <p class="alert alert-info" 
+                                        style="background-color:rgb(26,60,119)">
+                                        {{ $visit->appointment->day}}
+                                        </p>
+                                    </div>
+                                    @endif
                                     
                                     <div class="col form-group">
 
@@ -82,32 +99,46 @@
  
                                         <label>Type</label>
                                         <p class="alert alert-info" 
+                                        style="background-color:rgb(26,60,119)">{{ $visit->choice  }}</p>
+                                
+                                    </div>
+                                    <div class="col form-group">
+ 
+                                        <label>location</label>
+                                        <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $visit->type  }}</p>
                                 
                                     </div>
 
+                                    @if($visit->choice== 'test')
                                     <div class="col form-group">
- 
                                         <label>Test </label>
-                                        <p><a href="{{route('tests.delete',$visit->test -> id)}}">
+                                        <p><a href="{{route('tests.show',$visit->test -> id)}}">
                                         {{ $visit->test->name  }}
                                         </a></p>
-                                
                                     </div>
-
+                                    @else
                                     <div class="col form-group">
- 
+                                        <label>Offer </label>
+                                        <p><a href="{{route('offers.show',$visit->offer -> id)}}">
+                                        {{ $visit->offer->name  }}
+                                        </a></p>
+                                    </div>
+                                    @endif
+                                    @if($visit->type == "home")
+                                    <div class="col form-group">
                                         <label>Address </label>
                                         <p  class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">
                                          {{ $visit->address->street  }}</p>
                                     </div>
+                                    @endif
 
                                     <div class="col form-group">
  
                                         <label>Rate </label>
                                         <p  class="alert alert-info" 
-                                        style="background-color:rgb(26,60,119)">{{$visit -> rate ? $visit -> rate : 'Not rated yest'}}</p>
+                                        style="background-color:rgb(26,60,119)">{{$visit -> rate ? $visit -> rate ->rate : 'Not rated yest'}}</p>
                                     </div>
                                     <div class="col form-group">
  

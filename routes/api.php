@@ -7,6 +7,9 @@ use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\TestController;
 use App\Http\Controllers\Api\VisitController;
 use App\Http\Controllers\Api\ReservationController;
+use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\OffersController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +40,20 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/test',[TestController::class, 'test']);
     Route::get('/appointments',[TestController::class, 'appointments']);
     Route::post('/homeReservation',[ReservationController::class, 'home_reservation']);
+    Route::post('/LabReservation',[ReservationController::class, 'lab_reservation']);
     Route::post('/rate',[ReservationController::class, 'rate']);
-    Route::get('/UserHomeReservation',[ReservationController::class, 'UserHomeReservation']);
+    Route::get('/UserReservation',[ReservationController::class, 'UserReservation']);
+    Route::get('/UserLabReservation',[ReservationController::class, 'UserLabReservation']);
     Route::get('/CancelReservation',[ReservationController::class, 'CancelReservation']);
     Route::get('/DeleteReservation',[ReservationController::class, 'DeleteReservation']);
+    Route::get('/UserReservationResult',[ReservationController::class, 'UserReservationResult']);
+    Route::get('/ResultDetails',[ReservationController::class, 'ResultDetails']);
+    Route::get('/ReservationResult',[ReservationController::class, 'ReservationResult']);
+
+    Route::get('/UserNotifications',[NotificationController::class, 'UserNotifications']);
+    Route::get('/DeleteNotification',[NotificationController::class, 'DeleteNotification']);
+
+    Route::get('/UserOffers',[OffersController::class, 'UserOffers']);
+    Route::get('/OfferDetails',[OffersController::class, 'OfferDetails']);
 
 });

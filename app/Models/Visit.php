@@ -21,10 +21,16 @@ class Visit extends Model
         'user_id',
         'appointment_id',
         'status',
+        'accept',
+        'offer_id',
+        'choice',
     ];
 
     public function test(){
         return $this->belongsTo(Test::class, 'test_id');
+    }
+    public function offer(){
+        return $this->belongsTo(Offer::class, 'offer_id');
     }
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
@@ -34,5 +40,11 @@ class Visit extends Model
     }
     public function rate(){
         return $this->hasOne(Rate::class, 'visit_id');
+    }
+    public function appointment(){
+        return $this->belongsTo(Appointment::class, 'appointment_id');
+    }
+    public function result(){
+        return $this->hasOne(Result::class, 'visit_id');
     }
 }

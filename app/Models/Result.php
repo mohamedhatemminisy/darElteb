@@ -14,7 +14,11 @@ class Result extends Model
         'file',
         'seen',
         'visit_id',
+        'user_id',
     ];
+    public function visit(){
+        return $this->belongsTo(Visit::class, 'visit_id');
+    }
 }
 
 				
