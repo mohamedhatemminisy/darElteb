@@ -20,9 +20,7 @@ Route::group([
 
     Route::group([ 'middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
 
-        Route::get('/', function () {
-            return view('dashboard.index');
-        })->name('admin.dashboard');
+        Route::get('/','App\Http\Controllers\Dashboard\DashboardController@index')->name('admin.dashboard');
 
         Route::get('/users','App\Http\Controllers\Dashboard\UserController@index')->name('users');
         Route::get('/users/details/{id}','App\Http\Controllers\Dashboard\UserController@details')
@@ -70,11 +68,14 @@ Route::group([
         Route::post('/reservation/accept','App\Http\Controllers\Dashboard\ReservationController@reservationAcceptPost')
         ->name('result.accept');
  
+        Route::get('/reservation/filter','App\Http\Controllers\Dashboard\ReservationController@reservations')
+        ->name('reservation_filter');
  
         Route::resource('offers','App\Http\Controllers\Dashboard\OfferController');
         Route::get('/offers/delete/{id}','App\Http\Controllers\Dashboard\OfferController@destroy')
         ->name('offers.delete');
- 
+
+  
  
         Route::get('/show/result/{id}','App\Http\Controllers\Dashboard\ReservationController@showResult')
         ->name('show.result');

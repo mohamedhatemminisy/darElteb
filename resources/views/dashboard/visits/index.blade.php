@@ -44,6 +44,45 @@
 
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
+
+                                    <form action="{{route('reservation_filter')}}" method="get">
+                                        @csrf
+                                        <div class="row mb-2">
+                                          
+                                            <div class="col-md-4">
+                                                <label>Users</label>
+                                                <select name="user_id" class="form-control" id="user_id">
+                                                <option value="0">select user</option>
+                                                  @foreach($users as $user)
+                                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>location</label>
+                                                <select name="location" class="form-control">
+                                                <option value="0">select location</option>
+                                                    <option value="lab">lab</option>
+                                                    <option value="home">home</option>
+                                                </select>
+                                            </div>
+                                           
+                                            <div class="col-md-4">
+                                                <label>type</label>
+                                                <select name="type" class="form-control">
+                                                <option value="0">select type</option>
+                                                    <option value="offer">offer</option>
+                                                    <option value="test">test</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-2 mt-2">
+                                                <button type="submit" class="btn btn-success btn-sm">Filtrer</button>
+                                            </div>
+                                     
+                                        </div>
+                                     </form>  
+
                                         <table
                                             class="table display nowrap table-striped table-bordered">
                                             <thead class="">
@@ -126,4 +165,13 @@
         </div>
     </div>
 
+    @stop
+
+    @section('script')
+    <script>
+  $('#user_id').select2({
+    width: '100%',
+    placeholder: "Select an Option",
+    allowClear: true
+  });
 @stop

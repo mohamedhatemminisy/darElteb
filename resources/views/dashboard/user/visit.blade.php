@@ -44,28 +44,30 @@
 
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
-                                        <table
+                                    <table
                                             class="table display nowrap table-striped table-bordered">
                                             <thead class="">
                                             <tr>
-                                                <th>Time</th>
-                                                <th>Date</th>
+                                                <th>#</th>
                                                 <th>Name</th>
+                                                <th>Phone</th>
                                                 <th>Type</th>
-                                                <th>Created at</th>
+                                                <th>location</th>
+                                                <th>Rate</th>
                                                 <th>{{trans('admin.action')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
                                             @isset($visits )
-                                                @foreach($visits as $visit)
+                                                @foreach($visits as $key => $visit)
                                                     <tr>
-                                                        <td>{{$visit -> time}}</td>
-                                                        <td>{{$visit -> date}}</td>
+                                                        <td>{{ $key + 1 }}</td>
                                                         <td>{{$visit -> name}}</td>
+                                                        <td>{{$visit -> phone}}</td>
+                                                        <td>{{$visit -> choice}}</td>
                                                         <td>{{$visit -> type}}</td>
-                                                        <td>{{$visit -> created_at}}</td>
+                                                        <td>{{$visit -> rate ? $visit -> rate ->rate : 'Not rated yest'}}</td>
                                                         <td>
                                                         <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
@@ -74,6 +76,31 @@
                                                                    class="btn btn-sm btn-clean
                                                                         btn-icon mr-2" title="{{trans('admin.details')}}">
                                                                         <i class="fas fa-eye"></i></a>
+                                                                    @if($visit->accept == null)
+                                                                    <a href="{{route('visit.confirm',$visit->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="Confirm Reservation">
+                                                                        <i class="fas fa-check-square"></i></a>
+                                                                    @else
+                                                                    <a href="{{route('visit.accept',$visit->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="Show Acceptance">
+                                                                        <i class="fas fa-check-square" style="color: red;"></i></a>
+                                                                 @endif
+                                                                        @php
+                                                                        $result = App\Models\Result::where('visit_id',$visit->id)->first();
+                                                                        @endphp
+                                                                        @if(!$result)
+                                                                    <a href="{{route('visit.result',$visit->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="Upload Result">
+                                                                        <i class="fas fa-upload"></i></a>
+                                                                        @else
+                                                                        <a href="{{route('show.result',$visit->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="Upload Result">
+                                                                        <i class="fas fa-upload" style="color: red;"></i></a>
+                                                                        @endif
                                                             </div>
                                                         </td>
                         

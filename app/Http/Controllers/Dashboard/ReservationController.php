@@ -13,11 +13,50 @@ use LaravelFCM\Message\OptionsBuilder;
 use LaravelFCM\Message\PayloadDataBuilder;
 use LaravelFCM\Message\PayloadNotificationBuilder;
 use FCM;
+use View;
 
 class ReservationController extends Controller
 {
-    public function reservations(){
-        $visits = Visit::orderBy('id','DESC')->paginate(20);
+
+    public function __construct(){
+        $this->middleware(function($request, $next){
+            $users = User::get();
+            View::share('users', $users);
+            return $next($request);
+        });
+    }
+
+    public function filter($type, $location,  $user_id)
+    {
+         $visits = Visit::orderBy('id', 'desc');
+                if($type != "0")
+                {
+                    $visits = $visits->where('choice', $type);
+                }
+                if($location != '0')
+                {
+                    $visits = $visits->where('type', $location);
+                }
+                if($user_id !=  '0' )
+                {
+                    $visits = $visits->where('user_id', $user_id);
+                }
+               
+              return  $visits->paginate(25);
+
+    }
+
+
+    public function reservations(Request $request){
+        $params = $request->all();
+        if($request->_token)
+        {
+            $visits = $this->filter($params['type'] , $params['location'],  $params['user_id']);
+        }
+        else
+        {
+            $visits = Visit::orderBy('id','DESC')->paginate(20);
+        }
         return view('dashboard.visits.index', compact('visits'));
     }
 

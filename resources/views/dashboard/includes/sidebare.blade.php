@@ -6,17 +6,6 @@
         <li class=" nav-item"><a href="{{route('admin.dashboard')}}"><i class="la la-arrows-h"></i><span class="menu-title"
                       data-i18n="nav.horz_nav.main">{{trans('admin.home')}}</span></a>
         </li>
-
-        <li class=" nav-item"><a href="{{route('users')}}"><i class="la la-arrows-h"></i><span class="menu-title"
-                      data-i18n="nav.horz_nav.main">{{trans('admin.users')}}</span></a>
-        </li>
-
-
-        <li class=" nav-item"><a href="{{route('contact')}}"><i class="la la-arrows-h"></i><span class="menu-title"
-                      data-i18n="nav.horz_nav.main">{{trans('admin.contact')}}</span></a>
-        </li>
-
-        
         <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
          data-i18n="nav.horz_nav.main">{{trans('admin.countries')}}</span></a>
             <ul class="menu-content">
@@ -31,6 +20,23 @@
             </ul>
         </li>
 
+        <li class=" nav-item"><a href="{{route('users')}}"><i class="la la-arrows-h"></i><span class="menu-title"
+                      data-i18n="nav.horz_nav.main">{{trans('admin.users')}}</span></a>
+        </li>
+        
+
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">Appointments</span></a>
+            <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('appointments.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        Create appointment</a>
+                </li>
+                <li><a class="menu-item" href="{{route('appointments.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        Show appointments</a>
+
+                </li>
+            </ul>
+        </li>
 
         <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
          data-i18n="nav.horz_nav.main">{{trans('admin.tests')}}</span></a>
@@ -48,20 +54,6 @@
             </ul>
         </li>
 
-
-
-        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
-         data-i18n="nav.horz_nav.main">Appointments</span></a>
-            <ul class="menu-content">
-            <li><a class="menu-item" href="{{route('appointments.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
-                        Create appointment</a>
-                </li>
-                <li><a class="menu-item" href="{{route('appointments.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
-                        Show appointments</a>
-
-                </li>
-            </ul>
-        </li>
 
         <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
          data-i18n="nav.horz_nav.main">Offers</span></a>
@@ -85,6 +77,9 @@
             </ul>
         </li>
 
+        <li class=" nav-item"><a href="{{route('contact')}}"><i class="la la-arrows-h"></i><span class="menu-title"
+                      data-i18n="nav.horz_nav.main">{{trans('admin.contact')}}</span></a>
+        </li>
         </ul>
     </div>
 </div>
