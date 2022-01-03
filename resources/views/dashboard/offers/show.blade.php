@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">Offers</h3>
+                    <h3 class="content-header-title"> {{trans('admin.Offers')}}</h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Offers
+                                <li class="breadcrumb-item active"> {{trans('admin.Offers')}}
                                 </li>
                             </ol>
                         </div>
@@ -62,7 +62,7 @@
 
                                     <div class="col form-group">
  
-                                        <label>Type </label>
+                                        <label> {{trans('admin.type')}} </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $offer->type  }}</p>
                                 
@@ -70,21 +70,21 @@
 
                                     <div class="col form-group">
  
-                                        <label>Target</label>
+                                        <label> {{trans('admin.target')}} </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $offer->target  }}</p>
                                 
                                     </div>
  
                                     <div class="col form-group">
-                                            <label>Value</label>
+                                            <label> {{trans('admin.value')}} </label>
                                             <p class="alert alert-info" 
                                             style="background-color:rgb(26,60,119)">{{ $offer->value  }}</p>
                                     </div>
 
  
                                     <div class="col form-group">
-                                            <label>Tests</label>
+                                            <label> {{trans('admin.Tests')}} </label>
                                             @php
                                             $ids = json_decode($offer->tests);
                                             $tests = App\Models\Test::whereIn('id',json_decode($offer->tests))->get();

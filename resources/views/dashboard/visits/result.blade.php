@@ -12,9 +12,9 @@
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> 
                                     
-                               test Result </a>
+                                {{trans('admin.tests')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active">Create Result
+                                <li class="breadcrumb-item active">{{trans('admin.create_result')}}
                                 </li>
                             </ol>
                         </div>
@@ -28,7 +28,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> Create Result </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> {{trans('admin.create_result')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -58,7 +58,7 @@
                                                 <div class="row px-8">
                                                     <div class="col form-group">
                                                         <input type="hidden" name="visit_id" value="{{$id}}">
-                                                        <label>Time <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.time')}} <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="time" value="{{ old('time') }}" name="time">
                                                         @error("time" )
                                                             <span class="text-danger">{{$message}}</span>
@@ -67,7 +67,7 @@
                                                 </div>
                                                 <div class="row px-8">
                                                     <div class="col form-group">
-                                                        <label>Date <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.date')}} <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="date" value="{{ old('date') }}" name="date">
                                                         @error("date" )
                                                         <span class="text-danger">{{$message}}</span>
@@ -76,7 +76,7 @@
                                                 </div> 
 
                                                 <div class="col form-group">
-                                                    <label>File <span class="text-danger">*</span></label>
+                                                    <label>{{trans('admin.file')}} <span class="text-danger">*</span></label>
                                                     <input type="file" name="file" 
                                                     placeholder="File" class="form-control">
                                                     @error("file" )

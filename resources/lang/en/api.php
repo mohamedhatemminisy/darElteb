@@ -3,9 +3,12 @@
 return [
 
     'name_required'         =>  'Name is required',
-    'emil_requird'          =>  'Email us required',
+    'emil_requird'          =>  'Email Not valid',
+    'device_token_required'          =>  'Device token required',
+    'phone_problem'          =>  'Phone Not valid',
     'id_number_required'    =>  'ID number required',
     'email_unique'          =>  'Email must be unique',
+    'user_unauthenticated'  => 'user unauthenticated',
     'password_requred'      =>  'password required',
     'nationality_requred'   =>  'Nationality required',
     'birthrate_required'    =>  'Date of birth required',

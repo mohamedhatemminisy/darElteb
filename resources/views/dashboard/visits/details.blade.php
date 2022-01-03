@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">Reservations </h3>
+                    <h3 class="content-header-title">@lang('admin.Reservations') </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin.home')</a>
                                 </li>
-                                <li class="breadcrumb-item active">Reservations
+                                <li class="breadcrumb-item active">@lang('admin.Reservations') 
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> Reservations </h4>
+                                    <h4 class="card-title"> @lang('admin.Reservations')  </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -47,7 +47,7 @@
                                         
                                     
                                     <div class="col form-group">
-                                        <label>Time</label>
+                                        <label>@lang('admin.time') </label>
                                         <p class="alert alert-info"
                                          style="background-color:rgb(26,60,119)">
                                          @if($visit->type == 'lab')
@@ -60,7 +60,7 @@
                                     </div>
 
                                     <div class="col form-group">
-                                        <label>Date</label>
+                                        <label>@lang('admin.date') </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">
                                         @if($visit->type == 'lab')
@@ -82,14 +82,14 @@
                                     
                                     <div class="col form-group">
 
-                                        <label>Name </label>
+                                        <label>@lang('admin.name')  </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $visit->name }}</p>                                   
                                      </div>
 
                                     <div class="col form-group">
  
-                                        <label>Phone </label>
+                                        <label>@lang('admin.phone')  </label>
                                         <p class="alert alert-info"
                                          style="background-color:rgb(26,60,119)">{{ $visit->phone }}</p>
                                 
@@ -97,14 +97,14 @@
 
                                     <div class="col form-group">
  
-                                        <label>Type</label>
+                                        <label>@lang('admin.type') </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $visit->choice  }}</p>
                                 
                                     </div>
                                     <div class="col form-group">
  
-                                        <label>location</label>
+                                        <label>@lang('admin.location') </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $visit->type  }}</p>
                                 
@@ -112,14 +112,14 @@
 
                                     @if($visit->choice== 'test')
                                     <div class="col form-group">
-                                        <label>Test </label>
+                                        <label>@lang('admin.test')  </label>
                                         <p><a href="{{route('tests.show',$visit->test -> id)}}">
                                         {{ $visit->test->name  }}
                                         </a></p>
                                     </div>
                                     @else
                                     <div class="col form-group">
-                                        <label>Offer </label>
+                                        <label>@lang('admin.offer')  </label>
                                         <p><a href="{{route('offers.show',$visit->offer -> id)}}">
                                         {{ $visit->offer->name  }}
                                         </a></p>
@@ -127,7 +127,7 @@
                                     @endif
                                     @if($visit->type == "home")
                                     <div class="col form-group">
-                                        <label>Address </label>
+                                        <label>@lang('admin.Address')  </label>
                                         <p  class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">
                                          {{ $visit->address->street  }}</p>
@@ -136,13 +136,13 @@
 
                                     <div class="col form-group">
  
-                                        <label>Rate </label>
+                                        <label>@lang('admin.rate')  </label>
                                         <p  class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{$visit -> rate ? $visit -> rate ->rate : 'Not rated yest'}}</p>
                                     </div>
                                     <div class="col form-group">
  
-                                        <label>Created at </label>
+                                        <label>@lang('admin.created_at')</label>
                                         <p  class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">
                                          {{ $visit->created_at }}</p>
@@ -150,7 +150,7 @@
 
                                     <div class="col form-group">
  
-                                        <label>User </label>
+                                        <label>@lang('admin.user') </label>
                                         <p >
                                         <a href="{{route('user.details',$visit->user->id)}}">
                                         {{  $visit->user->name  }}
@@ -161,7 +161,7 @@
 
                                     <div class="col form-group">
  
-                                        <label>Photo</label>
+                                        <label>@lang('admin.image')</label>
                                         <p><img width="200px;height:200px"src="{{asset($visit->photo)}}"></p>
                                 
                                     </div>

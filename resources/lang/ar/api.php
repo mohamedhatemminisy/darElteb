@@ -3,7 +3,9 @@
 return [
 
     'name_required'         =>  'الاسم مطلوب',
-    'emil_requird'          =>  'البريد الاكتروني مطلوب',
+    'emil_requird'          =>  'البريد الالكتروني غير صحيح',
+    'phone_problem'          =>  'الهاتف  غير صحيح',
+    'device_token_required'          =>  'رقم التعريفي للهاتف مطلوب ',
     'id_number_required'    =>  'الرقم القومي مطلوب',
     'email_unique'          =>  'البريد الالكتروني  مدخل من قبل',
     'password_requred'      =>  'رقم المرور مطلوب',
@@ -14,6 +16,7 @@ return [
     'phone_requred'         =>  'رقم الجوال مطلوب',
     'phone_unique'          =>  'رقم الجوال مسجل من قبل',
     'ID_required'           =>  'صورة الرقم القومي مطلوب',
+    'user_unauthenticated'  => 'برجاء تسجيل الدخول',
 
     'registered'            => 'تم تسجيل المستخدم بنجاح',
     'logined'               => 'تم تسجيل الدخول بنجاح',

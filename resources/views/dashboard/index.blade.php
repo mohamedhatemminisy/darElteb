@@ -18,7 +18,7 @@
                                             <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>Tests count </h4>
+                                            <h4>@lang('admin.test_count') </h4>
                                          </div>
                                         <div class="col-5 text-right">
                                             <h4>{{$tests}}</h4>
@@ -43,7 +43,7 @@
                                             <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>Offers count</h4>
+                                            <h4>@lang('admin.offers_count')</h4>
                                          </div>
                                         <div class="col-5 text-right">
                                             <h4>{{$offers}}</h4>
@@ -67,7 +67,7 @@
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>visits Count </h4>
+                                            <h4>@lang('admin.reservations_count') </h4>
                                          </div>
                                         <div class="col-5 text-right">
                                             <h4>{{$visits}}</h4>
@@ -86,18 +86,18 @@
                 </div>
                 <!-- Candlestick Multi Level Control Chart -->
                 
-                <h2>Last offers </h2>
-                <a href="{{route('offers.index')}}" class="btn btn-primary">Show All Offers</a>
+                <h2>@lang('admin.Last_offers')  </h2>
+                <a href="{{route('offers.index')}}" class="btn btn-primary">@lang('admin.all_offers') </a>
                 <br><br>
                 <table class="table display nowrap table-striped table-bordered">
                     <thead class="">
                     <tr>
                         <th>#</th>
                         <th>{{trans('admin.name')}}</th>
-                        <th>Type </th>
-                        <th>Target</th>
-                        <th>Value</th>
-                            <th>{{trans('admin.action')}}</th>
+                        <th>@lang('admin.type') </th>
+                        <th>@lang('admin.target')</th>
+                        <th>@lang('admin.value')</th>
+                        <th>{{trans('admin.action')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -140,8 +140,8 @@
                     </tbody>
                 </table>
 
-                <h2>Last Tests </h2>
-                <a href="{{route('tests.index')}}" class="btn btn-primary">Show All Tests</a>
+                <h2>@lang('admin.last_tests') </h2>
+                <a href="{{route('tests.index')}}" class="btn btn-primary">@lang('admin.all_tests')</a>
                 <br><br>
                 <table  class="table display nowrap table-striped table-bordered">
                 <thead class="">
@@ -193,18 +193,18 @@
             </table>
 
 
-            <h2>Last Reservations </h2>
-                <a href="{{route('reservations')}}" class="btn btn-primary">Show All Reservations</a>
+            <h2>@lang('admin.Last_Reservations') </h2>
+                <a href="{{route('reservations')}}" class="btn btn-primary">@lang('admin.all_Reservations')</a>
                 <br><br>
             <table class="table display nowrap table-striped table-bordered">
                 <thead class="">
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Type</th>
-                    <th>location</th>
-                    <th>Rate</th>
+                    <th>@lang('admin.name')</th>
+                    <th>@lang('admin.phone')</th>
+                    <th>@lang('admin.type')</th>
+                    <th>@lang('admin.location')</th>
+                    <th>@lang('admin.rate')</th>
                     <th>{{trans('admin.action')}}</th>
                 </tr>
                 </thead>
@@ -230,12 +230,12 @@
                                         @if($visit->accept == null)
                                         <a href="{{route('visit.confirm',$visit->id)}}"
                                         class="btn btn-sm btn-clean
-                                            btn-icon mr-2" title="Confirm Reservation">
+                                            btn-icon mr-2" title="@lang('admin.ConfirmReservation')">
                                             <i class="fas fa-check-square"></i></a>
                                         @else
                                         <a href="{{route('visit.accept',$visit->id)}}"
                                         class="btn btn-sm btn-clean
-                                            btn-icon mr-2" title="Show Acceptance">
+                                            btn-icon mr-2" title="@lang('admin.ShowAcceptance')">
                                             <i class="fas fa-check-square" style="color: red;"></i></a>
                                         @endif
                                             @php
@@ -244,12 +244,12 @@
                                             @if(!$result)
                                         <a href="{{route('visit.result',$visit->id)}}"
                                         class="btn btn-sm btn-clean
-                                            btn-icon mr-2" title="Upload Result">
+                                            btn-icon mr-2" title="@lang('admin.UploadResult')">
                                             <i class="fas fa-upload"></i></a>
                                             @else
                                             <a href="{{route('show.result',$visit->id)}}"
                                         class="btn btn-sm btn-clean
-                                            btn-icon mr-2" title="Upload Result">
+                                            btn-icon mr-2" title="@lang('admin.UploadResult')">
                                             <i class="fas fa-upload" style="color: red;"></i></a>
                                             @endif
                                 </div>

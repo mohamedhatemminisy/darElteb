@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Country;
 use App\Models\UserPhoneVerify;
 use Illuminate\Support\Facades\Hash;
+use Validator;
 
 class UserController extends Controller
 {
@@ -37,27 +38,120 @@ class UserController extends Controller
         }
     }
 
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
-        if($request->hasFile('ID_image'))
-        {
-            $fileName = upload_image($request->file('ID_image'), 'ID_image');
-        }
-        $data1 = $request->all();
-        $data1['ID_image'] = $fileName;
-        $data1['password'] = bcrypt($request->password);
-        $user = User::create($data1);
-        $random_number = random4DigitNumberGenerator();
-         UserPhoneVerify::create([
-            'phone_number' =>  $user->phone,
-            'code' => $random_number,
-            'status' => 'active'
+        $validator=Validator::make($request->all(),[
+            'id_number'     => 'required',
+            'name'          => 'required',
+            'phone'         => 'required|unique:users,phone',
+            'nationality'   => 'required',
+            'birthrate'     => 'required',
+            'age'           => 'required',
+            'gender'        => 'required',
+            'ID_image'      => 'required',
+            'device_token'      => 'required',
+            'email'         => 'required|email|unique:users,email',
+            'password'      => 'required|max:150|min:3' ,
         ]);
-        return response([
-            'status' =>true ,
-            'message' =>trans('api.code_sent')  ,
-            'code' =>$random_number
-        ]); 
+       if ($validator->passes()) {
+            if($request->hasFile('ID_image'))
+            {
+                $fileName = upload_image($request->file('ID_image'), 'ID_image');
+            }
+            $data1 = $request->all();
+            $data1['ID_image'] = $fileName;
+            $data1['password'] = bcrypt($request->password);
+            $user = User::create($data1);
+            $random_number = random4DigitNumberGenerator();
+            UserPhoneVerify::create([
+                'phone_number' =>  $user->phone,
+                'code' => $random_number,
+                'status' => 'active'
+            ]);
+            return response([
+                'status' =>true ,
+                'message' =>trans('api.code_sent')  ,
+                'data' =>$random_number
+            ]); 
+        } else {
+
+            foreach ((array)$validator->errors() as $value){
+                if (isset($value['id_number'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.id_number_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['name'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.name_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['email'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.emil_requird') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['phone'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.phone_problem') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['nationality'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.nationality_requred') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['birthrate'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.birthrate_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['age'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.age_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['gender'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.gender_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['ID_image'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.ID_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['device_token'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.device_token_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['password'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.password_requred') ,
+                        'data' =>[]
+                    ]);
+                } else{
+                    $msg='لم يتم التسجيل';
+                    return response()->json([
+                        'error'=>0,
+                        'value'=>false,
+                        'msg'=>$msg
+                    ]);
+                }
+            } 
+       }
     }
     
     public function code_check(Request $request){
@@ -133,7 +227,9 @@ class UserController extends Controller
                 'data' =>$data
             ]); 
         } else {
-            return response()->json(['status' =>false ,'error' => trans('api.data_not_mach'),'data' =>[]], 401);
+            return response()->json(['status' =>false ,'error'
+             => trans('api.data_not_mach'),
+             'data' =>[]], 401);
         }
     }  
     

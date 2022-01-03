@@ -12,9 +12,9 @@
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> 
                                     
-                               test Result </a>
+                                @lang('admin.Reservations')  </a>
                                 </li>
-                                <li class="breadcrumb-item active">Create Acceptance
+                                <li class="breadcrumb-item active">@lang('admin.ShowAcceptance')
                                 </li>
                             </ol>
                         </div>
@@ -28,7 +28,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> Create Acceptance </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> @lang('admin.ShowAcceptance') </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -58,7 +58,7 @@
                              
                                                 <div class="row px-8">
                                                     <div class="col form-group">
-                                                        <label>Accept Reservation<span class="text-danger">*</span></label>
+                                                        <label> @lang('admin.message')<span class="text-danger">*</span></label>
                                                         <input class="form-control" type="text" value="{{ old('accept') }}" name="accept" required>
                                                         @error("accept" )
                                                         <span class="text-danger">{{$message}}</span>

@@ -32,7 +32,7 @@ class TestController extends Controller
                 $data[] = $arr;
             }
             $page = $request->get('page', 1);
-            $perPage = 10;
+            $perPage = 20;
             $offset = ($page * $perPage) - $perPage;
     
             $count = count($arr);

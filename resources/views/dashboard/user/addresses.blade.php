@@ -48,10 +48,10 @@
                                             class="table display nowrap table-striped table-bordered">
                                             <thead class="">
                                             <tr>
-                                                <th>City</th>
-                                                <th>Street</th>
-                                                <th>Building Number </th>
-                                                <th>Floor Number</th>
+                                                <th>{{trans('admin.City')}}</th>
+                                                <th>{{trans('admin.Street')}}</th>
+                                                <th>{{trans('admin.BuildingNumber')}} </th>
+                                                <th>{{trans('admin.FloorNumber')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>

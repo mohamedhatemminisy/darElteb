@@ -10,7 +10,7 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin.home')</a>
                                 </li>
                                 <li class="breadcrumb-item active">{{trans('admin.users')}}
                                 </li>
@@ -74,11 +74,11 @@
                                                                  
                                                                         <a href="{{route('user.addresses',$user->id)}}"
                                                                    class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2" title="Address"><i class="fas fa-map-marker"></i></a>
+                                                                        btn-icon mr-2" title="{{trans('admin.Address')}}"><i class="fas fa-map-marker"></i></a>
 
                                                                         <a href="{{route('user.reservations',$user->id)}}"
                                                                    class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2" title="Reservations"><i class="fas fa-history"></i></a>
+                                                                        btn-icon mr-2" title="{{trans('admin.Reservations')}}"><i class="fas fa-history"></i></a>
                                                             </div>
                                                         </td>
                         

@@ -42,6 +42,7 @@ class OffersController extends Controller
 
     public function OfferDetails(Request $request){
         $offer = Offer::find($request->offer_id);
+        if($offer){
         $u['id'] = $offer->id;
         $u['name'] = $offer->translate('en')->name;
         $u['description'] = strip_tags($offer->translate('en')->description);
@@ -68,5 +69,13 @@ class OffersController extends Controller
             'data' =>$u
         ]);
 
+    }else{
+        return response([
+            'status' =>false ,
+            'message' =>trans("Offer Id not correct")  ,
+            'data' =>[]
+        ]);
+
+    }
     }
 }

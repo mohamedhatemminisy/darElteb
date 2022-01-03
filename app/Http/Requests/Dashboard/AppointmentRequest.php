@@ -29,4 +29,13 @@ class AppointmentRequest extends FormRequest
             'time' => 'required|date_format:H:i',
         ];
     }
+
+    public function messages()
+    {
+        return[
+            'day.required' => trans('admin.error_message.day_required'),
+            'date.required' => trans('admin.error_message.date_required'),
+            'time.required' => trans('admin.error_message.time_required'),
+        ];
+    }
 }
