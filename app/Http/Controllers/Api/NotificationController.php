@@ -26,13 +26,13 @@ class NotificationController extends Controller
             }
             return response([
                 'status' =>true ,
-                'message' =>trans("User notification")  ,
+                'message' =>trans("api.notification")  ,
                 'data' =>$data
             ]);
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans("User does not have notification")  ,
+                'message' =>trans("api.not_notification")  ,
                 'data' =>[]
             ]);
         }
@@ -44,13 +44,13 @@ class NotificationController extends Controller
             $notificationPhone->delete();
             return response([
                 'status' =>true ,
-                'message' =>trans("Notification Deleted successfully")  ,
+                'message' =>trans("api.NotificationDeleted")  ,
                 'data' =>[]
             ]);
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans("Notification Id not correct")  ,
+                'message' =>trans("api.notification_not_valid")  ,
                 'data' =>[]
             ]);
         }

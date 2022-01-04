@@ -68,13 +68,13 @@ class UserController extends Controller
                 'code' => $random_number,
                 'status' => 'active'
             ]);
+            $data['activation_code'] = $random_number;
             return response([
                 'status' =>true ,
                 'message' =>trans('api.code_sent')  ,
-                'data' =>$random_number
+                'data' =>$data
             ]); 
         } else {
-
             foreach ((array)$validator->errors() as $value){
                 if (isset($value['id_number'])) {
                     return response()->json([
@@ -143,11 +143,10 @@ class UserController extends Controller
                         'data' =>[]
                     ]);
                 } else{
-                    $msg='لم يتم التسجيل';
                     return response()->json([
-                        'error'=>0,
-                        'value'=>false,
-                        'msg'=>$msg
+                        'status' =>false ,
+                        'message' =>trans('api.fail') ,
+                        'data' =>[]
                     ]);
                 }
             } 
@@ -155,45 +154,73 @@ class UserController extends Controller
     }
     
     public function code_check(Request $request){
-        $UserPhoneVerify = UserPhoneVerify::where('phone_number' ,$request->phone)
-        ->where('code',$request->code)->first();
-        if($UserPhoneVerify){
-           if($UserPhoneVerify->status == 'active'){
-                $UserPhoneVerify->status = 'not_active';
-                $UserPhoneVerify->save();
-                $user = User::where('phone',$request->phone)->first();
-                $token = $user->createToken('LaravelAuthApp')->accessToken;
-                $data['id'] = $user->id;
-                $data['id_number'] = $user->id_number;
-                $data['name'] = $user->name;
-                $data['phone'] = $user->phone;
-                $data['nationality'] = $user->nationality;
-                $data['birthrate'] = $user->birthrate;
-                $data['age'] = $user->age;
-                $data['gender'] = $user->gender;
-                $data['email'] = $user->email;
-                $data['device_token'] = $user->device_token;
-                $data['ID_image'] = url('/').$user->ID_image;
-                $data['token'] = $token;
-                return response([
-                    'status' =>true ,
-                    'message' =>trans('api.registered')  ,
-                    'code' =>$data
-                ]); 
-           }else{
+        $validator=Validator::make($request->all(),[
+            'phone'=>'required',
+            'code'=>'required'
+        ]);
+        if ($validator->passes()) {
+            $UserPhoneVerify = UserPhoneVerify::where('phone_number' ,$request->phone)
+            ->where('code',$request->code)->first();
+            if($UserPhoneVerify){
+            if($UserPhoneVerify->status == 'active'){
+                    $UserPhoneVerify->status = 'not_active';
+                    $UserPhoneVerify->save();
+                    $user = User::where('phone',$request->phone)->first();
+                    $token = $user->createToken('LaravelAuthApp')->accessToken;
+                    $data['id'] = $user->id;
+                    $data['id_number'] = $user->id_number;
+                    $data['name'] = $user->name;
+                    $data['phone'] = $user->phone;
+                    $data['nationality'] = $user->nationality;
+                    $data['birthrate'] = $user->birthrate;
+                    $data['age'] = $user->age;
+                    $data['gender'] = $user->gender;
+                    $data['email'] = $user->email;
+                    $data['device_token'] = $user->device_token;
+                    $data['ID_image'] = asset($user->ID_image);
+                    $data['token'] = $token;
+                    return response([
+                        'status' =>true ,
+                        'message' =>trans('api.registered')  ,
+                        'code' =>$data
+                    ]); 
+            }else{
+                    return response([
+                        'status' =>false ,
+                        'message' =>trans('api.code_not_active')  ,
+                        'data' =>[]
+                    ]);  
+            }
+            }else{
                 return response([
                     'status' =>false ,
-                    'message' =>trans('your code is not active')  ,
+                    'message' =>trans('api.code_not_correct')  ,
                     'data' =>[]
-                ]);  
-           }
-        }else{
-            return response([
-                'status' =>false ,
-                'message' =>trans('your code is not correct')  ,
-                'data' =>[]
-            ]);    
-        }
+                ]);    
+            }
+         }else{
+            foreach ((array)$validator->errors() as $value){
+                if (isset($value['phone'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.phone_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['code'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.code_requred') ,
+                        'data' =>[]
+                    ]);
+                }  else{
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.fail') ,
+                        'data' =>[]
+                    ]);
+                }
+             }
+         }
     }
 
      /**
@@ -201,6 +228,11 @@ class UserController extends Controller
      */
     public function login(Request $request)
     {
+        $validator=Validator::make($request->all(),[
+            'phone'         => 'required',
+            'password'      => 'required' ,
+        ]);
+       if ($validator->passes()) {
         $user = [
             'phone'    => $request->phone,
             'password' => $request->password
@@ -218,7 +250,7 @@ class UserController extends Controller
             $data['age'] = $user->age;
             $data['gender'] = $user->gender;
             $data['email'] = $user->email;
-            $data['ID_image'] = url('/').$user->ID_image;
+            $data['ID_image'] = asset($user->ID_image);
             $data['token'] = $token;
 
             return response([
@@ -226,32 +258,79 @@ class UserController extends Controller
                 'message' =>trans('api.logined')  ,
                 'data' =>$data
             ]); 
-        } else {
-            return response()->json(['status' =>false ,'error'
-             => trans('api.data_not_mach'),
-             'data' =>[]], 401);
         }
+      }else{
+        foreach ((array)$validator->errors() as $value){
+            if (isset($value['phone'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.phone_problem') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['password'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.password_requred') ,
+                    'data' =>[]
+                ]);
+            }  else{
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.fail') ,
+                    'data' =>[]
+                ]);
+            }
+         }
+       }
     }  
     
-    public function change_password(Request $request){
+    public function change_password(Request $request)
+    {
+        $validator=Validator::make($request->all(),[
+            'oldPassword'=>'required',
+            'newPassword'=>'required'
+        ]);
+        if ($validator->passes()) {
         $user = User::find(Auth()->user()->id);
        if(Hash::check($request->oldPassword,$user->password)){
         $user->password = bcrypt($request->newPassword);
         $user->save();
         return response([
                 'status' =>true ,
-                'message' =>trans('Password updated successfully')  ,
+                'message' =>trans('api.password_updated')  ,
                 'data' =>[]
             ]);               
        }else{
         return response([
                 'status' =>false ,
-                'message' =>trans('old password not correct')  ,
+                'message' =>trans('api.oldPassword_not_correct')  ,
                 'data' =>[]
             ]);    
        }
+     }else{
+        foreach ((array)$validator->errors() as $value){
+            if (isset($value['newPassword'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.newPassword_required') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['oldPassword'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.oldPassword_requred') ,
+                    'data' =>[]
+                ]);
+            }else{
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.fail') ,
+                    'data' =>[]
+                ]);
+            }
+         }
+       }
  
-        
     }
     
     public function getProfileData(Request $request)
@@ -268,7 +347,7 @@ class UserController extends Controller
             $data['gender'] = $user->gender;
             $data['email'] = $user->email;
             $data['device_token'] = $user->device_token;
-            $data['ID_image'] = url('/').$user->ID_image;
+            $data['ID_image'] = asset($user->ID_image);
             $data['token'] = "";
             return response([
                 'status' =>true ,
@@ -285,7 +364,21 @@ class UserController extends Controller
         }
     }
 
-    public function updateProfile(EditProfileRequest $request){
+    public function updateProfile(Request $request){
+        $validator=Validator::make($request->all(),[
+            'id_number'     => 'required',
+            'name'          => 'required',
+            'phone'         => 'required|unique:users,phone,'.Auth()->user()->id,
+            'nationality'   => 'required',
+            'birthrate'     => 'required',
+            'age'           => 'required',
+            'gender'        => 'required',
+            'ID_image'      => 'required',
+            'device_token'  => 'required',
+            'email'         => "required|email|unique:users,email,".Auth()->user()->id,
+        ]);
+       if ($validator->passes()) {
+        
         $user = auth()->user();
         $data1 = $request->all();
         if($request->hasFile('ID_image'))
@@ -307,25 +400,118 @@ class UserController extends Controller
         $data['gender'] = $user->gender;
         $data['email'] = $user->email;
         $data['device_token'] = $user->device_token;
-        $data['ID_image'] = url('/').$user->ID_image;
-        $data['image'] = url('/').$user->image;
+        $data['ID_image'] = asset($user->ID_image);
+        $data['image'] = asset($user->image);
         $data['token'] = "";
         return response([
             'status' =>true ,
             'message' =>trans('success.user_updated')  ,
             'data' =>$data
-        ]);   
+        ]);  
+    } else {
+        foreach ((array)$validator->errors() as $value){
+            if (isset($value['id_number'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.id_number_required') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['name'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.name_required') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['email'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.emil_requird') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['phone'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.phone_problem') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['nationality'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.nationality_requred') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['birthrate'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.birthrate_required') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['age'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.age_required') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['gender'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.gender_required') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['ID_image'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.ID_required') ,
+                    'data' =>[]
+                ]);
+            }elseif (isset($value['device_token'])) {
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.device_token_required') ,
+                    'data' =>[]
+                ]);
+            } else{
+                return response()->json([
+                    'status' =>false ,
+                    'message' =>trans('api.fail') ,
+                    'data' =>[]
+                ]);
+            }
+        } 
+   }
     }
-    public function update_device_token(Request $request){
-        $user_id = Auth()->user()->id;
-        $user = User::find($user_id);
-        $user->device_token = $request->device_token;
-        $user->save();
-        return response([
-            'status' =>true ,
-            'message' =>trans('Device token updated')  ,
-            'data' =>[]
-        ]); 
+    public function update_device_token(Request $request)
+    {
+        $validator=Validator::make($request->all(),[
+            'device_token'=>'required',
+        ]);
+        if ($validator->passes()) {
+            $user_id = Auth()->user()->id;
+            $user = User::find($user_id);
+            $user->device_token = $request->device_token;
+            $user->save();
+            return response([
+                'status' =>true ,
+                'message' =>trans('api.device_token_updated')  ,
+                'data' =>[]
+            ]); 
+        }else{
+            foreach ((array)$validator->errors() as $value){
+                if (isset($value['device_token'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.device_token_required') ,
+                        'data' =>[]
+                    ]);
+                }else{
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.fail') ,
+                        'data' =>[]
+                    ]);
+                } 
+             }
+        }
     }
 }
  
