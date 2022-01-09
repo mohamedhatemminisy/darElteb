@@ -113,7 +113,6 @@ class UserController extends Controller
         ];
         if (auth()->attempt($user)) {
             $user =User::where('phone',$user['phone'])->first();
-
             $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
             $data['id'] = $user->id;
             $data['id_number'] = $user->id_number;
@@ -153,9 +152,7 @@ class UserController extends Controller
                 'message' =>trans('old password not correct')  ,
                 'data' =>[]
             ]);    
-       }
- 
-        
+       }     
     }
     
     public function getProfileData(Request $request)

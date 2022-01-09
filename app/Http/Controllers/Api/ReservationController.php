@@ -207,13 +207,13 @@ class ReservationController extends Controller
             $data['seen'] = $result->seen;
             $data['test'] = $result->visit->test->translate('en')->name;
             return response([
-                'status' =>false ,
+                'status' => false ,
                 'message' =>trans('Result Derails')  ,
                 'data' => $data
             ]);
         }else{
             return response([
-                'status' =>false ,
+                'status' => false ,
                 'message' =>trans('Result not valid')  ,
                 'data' =>[]
             ]);  
@@ -239,8 +239,8 @@ class ReservationController extends Controller
         $data['user_id'] = Auth()->user()->id;
         $visit = Visit::create($data);
         return response([
-            'status' =>true ,
-            'message' =>trans('lab reservation request sent successfully')  ,
+            'status' => true ,
+            'message' => trans('lab reservation request sent successfully')  ,
             'data' =>[]
         ]); 
     }
