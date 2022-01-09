@@ -368,12 +368,6 @@ class ReservationController extends Controller
             $data['date'] = $result->date;
             $data['file'] = asset($result->file);
             $data['seen'] = $result->seen;
-<<<<<<< HEAD
-            $data['test'] = $result->visit->test->translate('en')->name;
-            return response([
-                'status' => false ,
-                'message' =>trans('Result Derails')  ,
-=======
             $data['type'] = $result->visit->choice;
             if($result->visit->choice == 'test'){
                 $data['test'] = $result->visit->test->translate('en')->name;
@@ -382,18 +376,12 @@ class ReservationController extends Controller
             }            return response([
                 'status' =>true ,
                 'message' =>trans('api.ResultDerails')  ,
->>>>>>> 7445ef0b19da4356b37e832ddb7d38fafd6173fe
                 'data' => $data
             ]);
         }else{
             return response([
-<<<<<<< HEAD
-                'status' => false ,
-                'message' =>trans('Result not valid')  ,
-=======
                 'status' =>false ,
                 'message' =>trans('api.ResultNotValid')  ,
->>>>>>> 7445ef0b19da4356b37e832ddb7d38fafd6173fe
                 'data' =>[]
             ]);  
         }
@@ -496,17 +484,5 @@ class ReservationController extends Controller
                 }
              }
         }
-<<<<<<< HEAD
-        $data['photo'] = $fileName;
-        $data['type']  = 'lab';
-        $data['user_id'] = Auth()->user()->id;
-        $visit = Visit::create($data);
-        return response([
-            'status' => true ,
-            'message' => trans('lab reservation request sent successfully')  ,
-            'data' =>[]
-        ]); 
-=======
->>>>>>> 7445ef0b19da4356b37e832ddb7d38fafd6173fe
     }
 }

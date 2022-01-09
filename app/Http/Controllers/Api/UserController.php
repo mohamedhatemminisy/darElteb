@@ -239,6 +239,7 @@ class UserController extends Controller
         ];
         if (auth()->attempt($user)) {
             $user =User::where('phone',$user['phone'])->first();
+
             $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
             $data['id'] = $user->id;
             $data['id_number'] = $user->id_number;
@@ -305,9 +306,6 @@ class UserController extends Controller
                 'message' =>trans('api.oldPassword_not_correct')  ,
                 'data' =>[]
             ]);    
-<<<<<<< HEAD
-       }     
-=======
        }
      }else{
         foreach ((array)$validator->errors() as $value){
@@ -333,7 +331,6 @@ class UserController extends Controller
          }
        }
  
->>>>>>> 7445ef0b19da4356b37e832ddb7d38fafd6173fe
     }
     
     public function getProfileData(Request $request)
