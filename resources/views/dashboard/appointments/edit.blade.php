@@ -9,7 +9,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">{{trans('admin.home')}} </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('appointments.index')}}"> Appointment</a>
+                                <li class="breadcrumb-item"><a href="{{route('appointments.index')}}">{{trans('admin.Appointments')}} </a>
                                 </li>
                                 <li class="breadcrumb-item active"> {{trans('admin.edit')}} - {{$appointment -> name}}
                                 </li>
@@ -26,7 +26,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title" id="basic-layout-form"> 
-                                        {{trans('admin.edit')}} {{trans('admin.countries')}} </h4>
+                                        {{trans('admin.edit')}}{{trans('admin.Appointments')}}  </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -50,7 +50,7 @@
                                             <div class="card-body">
                                                 <div class="row px-8">
                                                     <div class="col form-group">
-                                                        <label>Day <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.day')}}  <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="text" value="{{old('day', $appointment->day)}}" name="day">
                                                         @error("day" )
                                                             <span class="text-danger">{{$message}}</span>
@@ -59,7 +59,7 @@
                                                 </div>
                                                 <div class="row px-8">
                                                     <div class="col form-group">
-                                                        <label>Date <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.date')}}  <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="date" value="{{old('date', $appointment->date)}}" name="date">
                                                         @error("date" )
                                                             <span class="text-danger">{{$message}}</span>
@@ -68,7 +68,7 @@
                                                 </div> 
                                                 <div class="row px-8">
                                                     <div class="col form-group">
-                                                        <label>Time <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.time')}}  <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="time" value="{{old('time', $appointment->time)}}" name="time">
                                                         @error("time" )
                                                             <span class="text-danger">{{$message}}</span>

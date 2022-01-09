@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">Appointments </h3>
+                    <h3 class="content-header-title">{{trans('admin.Appointments')}} </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin.home')</a>
                                 </li>
-                                <li class="breadcrumb-item active">Appointments
+                                <li class="breadcrumb-item active">{{trans('admin.Appointments')}}
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> Appointments </h4>
+                                    <h4 class="card-title"> {{trans('admin.Appointments')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -49,9 +49,9 @@
                                             <thead class="">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Day</th>
-                                                <th>Date</th>
-                                                <th>Time</th>
+                                                <th>{{trans('admin.day')}}</th>
+                                                <th>{{trans('admin.date')}}</th>
+                                                <th>{{trans('admin.time')}}</th>
                                                  <th>{{trans('admin.action')}}</th>
                                             </tr>
                                             </thead>

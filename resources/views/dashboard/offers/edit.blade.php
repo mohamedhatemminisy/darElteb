@@ -11,7 +11,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">{{trans('admin.home')}} </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('offers.index')}}"> Offers</a>
+                                <li class="breadcrumb-item"><a href="{{route('offers.index')}}">  {{trans('admin.Offers')}}</a>
                                 </li>
                                 <li class="breadcrumb-item active"> {{trans('admin.edit')}} - {{$offer -> name}}
                                 </li>
@@ -95,13 +95,13 @@
                                                 <div class="col form-group">
                                                         <label>Type <span class="text-danger">*</span></label>
                                                             <select name="type" class="form-control">
-                                                                <option value="laboratory"  @if($offer->type == 'laboratory') selected @endif>Laboratory</option>
-                                                                <option value="individual" @if($offer->type == 'individual') selected @endif>Individual</option>
+                                                                <option value="laboratory"  @if($offer->type == 'laboratory') selected @endif>{{trans('admin.Laboratory')}}</option>
+                                                                <option value="individual" @if($offer->type == 'individual') selected @endif>{{trans('admin.Individual')}}</option>
                                                             </select>
                                                     </div>
 
                                                     <div class="col form-group">
-                                                        <label>Tests<span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.Tests')}}<span class="text-danger">*</span></label>
                                                         <select class="form-control" name="tests[]" id='tests' multiple>
                                                             @foreach ($tests as $item)
                                                                 <option value="{{ $item->id }}" @if(in_array($item->id, json_decode($offer->tests))) selected @endif>
@@ -112,7 +112,7 @@
 
 
                                                     <div class="col form-group">
-                                                        <label>Offer Category <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.Offer_Category')}} <span class="text-danger">*</span></label>
                                                             <select name="target" class="form-control offer_type">
                                                                 <option value="gender"  @if($offer->target == 'gender') selected @endif>gender</option>
                                                                 <option value="age" @if($offer->target == 'age') selected @endif>age</option>
@@ -123,17 +123,17 @@
                                                     @enderror
 
                                                     <div class="col form-group d-none" id="age">
-                                                        <label>age<span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.age')}}<span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" name="age" value="{{$offer->value}}">
                                                     </div>
                                                     @error("age" )
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                     <div class="col form-group d-none" id="gender">
-                                                        <label>gender<span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.gender')}}<span class="text-danger">*</span></label>
                                                         <select name="gender" class="form-control">
-                                                                <option value="male"  @if($offer->value == 'male') selected @endif>male</option>
-                                                                <option value="female"  @if($offer->value == 'female') selected @endif>female</option>
+                                                                <option value="male"  @if($offer->value == 'male') selected @endif>{{trans('admin.male')}}</option>
+                                                                <option value="female"  @if($offer->value == 'female') selected @endif>{{trans('admin.female')}}</option>
                                                             </select>
                                                         </div>
                                                    @error("gender" )

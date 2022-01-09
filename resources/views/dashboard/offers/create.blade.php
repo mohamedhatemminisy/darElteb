@@ -12,9 +12,9 @@
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> 
                                     
-                                Offers</a>
+                                {{trans('admin.Offers')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active">Create Offer
+                                <li class="breadcrumb-item active">{{trans('admin.Create_offer')}} 
                                 </li>
                             </ol>
                         </div>
@@ -28,7 +28,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> Create Offer</h4>
+                                    <h4 class="card-title" id="basic-layout-form">{{trans('admin.Create_offer')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -97,16 +97,16 @@
                                                     @endforeach
 
                                                     <div class="col form-group">
-                                                        <label>Type <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.type')}}  <span class="text-danger">*</span></label>
                                                             <select name="type" class="form-control">
-                                                                <option value="laboratory">Laboratory</option>
-                                                                <option value="individual">Individual</option>
+                                                                <option value="laboratory">{{trans('admin.Laboratory')}} </option>
+                                                                <option value="individual">{{trans('admin.Individual')}} </option>
                                                             </select>
                                                     </div>
 
 
                                                     <div class="col form-group">
-                                                        <label>Tests <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.Tests')}} <span class="text-danger">*</span></label>
                                                         <select class="form-control" name="tests[]" id='tests' multiple>
                                                             @foreach ($tests as $test)
                                                                 <option value="{{ $test->id }}" {{ old('tests') == $test->id ? 'selected' : '' }}>
@@ -119,10 +119,10 @@
                                                     @enderror
 
                                                     <div class="col form-group">
-                                                        <label>Offer Category <span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.Offer_Category')}}  <span class="text-danger">*</span></label>
                                                             <select name="target" class="form-control offer_type">
-                                                                <option value="gender">gender</option>
-                                                                <option value="age">age</option>
+                                                                <option value="gender">{{trans('admin.gender')}}</option>
+                                                                <option value="age">{{trans('admin.age')}}</option>
                                                             </select>
                                                     </div>
                                                     @error("target" )
@@ -130,17 +130,17 @@
                                                     @enderror
 
                                                     <div class="col form-group d-none" id="age">
-                                                        <label>age<span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.age')}}<span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" name="age">
                                                     </div>
                                                     @error("age" )
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                     <div class="col form-group d-none" id="gender">
-                                                        <label>gender<span class="text-danger">*</span></label>
+                                                        <label>{{trans('admin.gender')}}<span class="text-danger">*</span></label>
                                                         <select name="gender" class="form-control">
-                                                                <option value="male">male</option>
-                                                                <option value="female">female</option>
+                                                                <option value="male">{{trans('admin.male')}}</option>
+                                                                <option value="female">{{trans('admin.female')}}</option>
                                                             </select>
                                                         </div>
                                                    @error("gender" )

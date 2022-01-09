@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">Visits</h3>
+                    <h3 class="content-header-title">@lang('admin.Reservations')</h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin.home')</a>
                                 </li>
-                                <li class="breadcrumb-item active">Visits
+                                <li class="breadcrumb-item active">@lang('admin.Reservations')
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> Visites</h4>
+                                    <h4 class="card-title"> @lang('admin.Reservations')</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -49,11 +49,11 @@
                                             <thead class="">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Name</th>
-                                                <th>Phone</th>
-                                                <th>Type</th>
-                                                <th>location</th>
-                                                <th>Rate</th>
+                                                <th>@lang('admin.name')</th>
+                                                <th>@lang('admin.phone')</th>
+                                                <th>@lang('admin.type')</th>
+                                                <th>@lang('admin.location')</th>
+                                                <th>@lang('admin.rate')</th>
                                                 <th>{{trans('admin.action')}}</th>
                                             </tr>
                                             </thead>
@@ -79,12 +79,12 @@
                                                                     @if($visit->accept == null)
                                                                     <a href="{{route('visit.confirm',$visit->id)}}"
                                                                    class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2" title="Confirm Reservation">
+                                                                        btn-icon mr-2" title="@lang('admin.ConfirmReservation')">
                                                                         <i class="fas fa-check-square"></i></a>
                                                                     @else
                                                                     <a href="{{route('visit.accept',$visit->id)}}"
                                                                    class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2" title="Show Acceptance">
+                                                                        btn-icon mr-2" title="@lang('admin.ShowAcceptance')">
                                                                         <i class="fas fa-check-square" style="color: red;"></i></a>
                                                                  @endif
                                                                         @php
@@ -93,12 +93,12 @@
                                                                         @if(!$result)
                                                                     <a href="{{route('visit.result',$visit->id)}}"
                                                                    class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2" title="Upload Result">
+                                                                        btn-icon mr-2" title="@lang('admin.UploadResult')">
                                                                         <i class="fas fa-upload"></i></a>
                                                                         @else
                                                                         <a href="{{route('show.result',$visit->id)}}"
                                                                    class="btn btn-sm btn-clean
-                                                                        btn-icon mr-2" title="Upload Result">
+                                                                        btn-icon mr-2" title="@lang('admin.UploadResult')">
                                                                         <i class="fas fa-upload" style="color: red;"></i></a>
                                                                         @endif
                                                             </div>

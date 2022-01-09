@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">Offers</h3>
+                    <h3 class="content-header-title">{{trans('admin.Offers')}}</h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">offers
+                                <li class="breadcrumb-item active">{{trans('admin.Offers')}}
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> Offers</h4>
+                                    <h4 class="card-title"> {{trans('admin.Offers')}}</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -51,10 +51,10 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>{{trans('admin.name')}}</th>
-                                                <th>Type </th>
-                                                <th>Target</th>
-                                                <th>Value</th>
-                                                 <th>{{trans('admin.action')}}</th>
+                                                <th>@lang('admin.type') </th>
+                                                <th>@lang('admin.target')</th>
+                                                <th>@lang('admin.value')</th>
+                                                <th>{{trans('admin.action')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>

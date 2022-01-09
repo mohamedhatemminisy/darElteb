@@ -8,97 +8,237 @@ use App\Models\Result;
 use App\Models\Visit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Validator;
 
 class ReservationController extends Controller
 {
     public function home_reservation(Request $request){
-        $data = $request->all();
-        if($request->type == 'test'){
-            $data['choice'] = 'test';
-            $data['test_id'] = $request->type_id;
+        $validator=Validator::make($request->all(),[
+            'time'=>'required',
+            'date'=>'required',
+            'name'=>'required',
+            'phone'=>'required',
+            'photo'=>'required',
+            'type'=>'required',
+            'type_id'=>'required',
+            'address_id'=>'required',
+        ]);
+        if ($validator->passes()) {
+            $data = $request->all();
+            if($request->type == 'test'){
+                $data['choice'] = 'test';
+                $data['test_id'] = $request->type_id;
+            }else{
+                $data['choice'] = 'offer';
+                $data['offer_id'] = $request->type_id;
+            }
+            if($request->hasFile('photo'))
+            {
+                $fileName = upload_image($request->file('photo'), 'photo');
+            }
+            $data['photo'] = $fileName;
+            $data['type']  = 'home';
+            $data['user_id'] = Auth()->user()->id;
+            $visit = Visit::create($data);
+            $data['id'] = $visit->id;
+            $data['time'] = $visit->time;
+            $data['name'] = $visit->name;
+            $data['date'] = $visit->date;
+            $data['photo'] = asset($visit->photo);
+            $data['phone'] = $visit->phone;
+            $data['type'] = $visit->choice;
+            $data['address'] = $visit->address->city;
+            $data['user'] = $visit->user->name;
+            if($visit->choice == 'test'){
+                $data['test'] = $visit->test->translate('en')->name;
+            }else{
+                $data['offer'] = $visit->offer->translate('en')->name;
+            }
+
+            return response([
+                'status' =>true ,
+                'message' =>trans('api.reservation_sent')  ,
+                'data' =>$data
+            ]); 
         }else{
-            $data['choice'] = 'offer';
-            $data['offer_id'] = $request->type_id;
+            foreach ((array)$validator->errors() as $value){
+                if (isset($value['time'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.time_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['date'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.date_requred') ,
+                        'data' =>[]
+                    ]);
+                } elseif (isset($value['name'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.name_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['phone'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.phone_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['photo'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.photo_required') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['type'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.type_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['address_id'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.address_id_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['type_id'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.type_id_requred') ,
+                        'data' =>[]
+                    ]);
+                }else{
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.fail') ,
+                        'data' =>[]
+                    ]);
+                }
+             }
         }
-        if($request->hasFile('photo'))
-        {
-            $fileName = upload_image($request->file('photo'), 'photo');
-        }
-        $data['photo'] = $fileName;
-        $data['type']  = 'home';
-        $data['user_id'] = Auth()->user()->id;
-        $visit = Visit::create($data);
-        return response([
-            'status' =>true ,
-            'message' =>trans('Home reservation sent successfully')  ,
-            'data' =>[]
-        ]); 
     }
 
     public function rate(Request $request)
     {
-        $visit = Visit::find($request->visit_id);
-        if($visit){
-            $user_id = Auth()->user()->id;
-            $rate = Rate::where('user_id',$user_id)
-            ->where('visit_id',$request->visit_id)->first();
-            if($rate){
+        $validator=Validator::make($request->all(),[
+            'visit_id'=>'required',
+            'rate'=>'required'
+        ]);
+        if ($validator->passes()) {
+            $visit = Visit::find($request->visit_id);
+            if($visit){
+                $user_id = Auth()->user()->id;
+                $rate = Rate::where('user_id',$user_id)
+                ->where('visit_id',$request->visit_id)->first();
+                if($rate){
+                    return response([
+                        'status' =>false ,
+                        'message' =>trans('api.rated_befor')  ,
+                        'data' =>[]
+                    ]); 
+                }else{
+                    $data = $request->all();
+                    $data['user_id'] = $user_id;
+                    $rate = Rate::create($data);
+                    $dat['id'] = $rate->id;
+                    $dat['rate'] = $rate->rate;
+                    $dat['user'] = $rate->user->name;
+                    return response([
+                        'status' =>true ,
+                        'message' =>trans('api.rated')  ,
+                        'data' =>$dat
+                    ]); 
+                }
+            }else{
                 return response([
                     'status' =>false ,
-                    'message' =>trans('This visit rated before')  ,
-                    'data' =>[]
-                ]); 
-            }else{
-                $data = $request->all();
-                $data['user_id'] = $user_id;
-                $rate = Rate::create($data);
-                return response([
-                    'status' =>true ,
-                    'message' =>trans('Visit Rated successfully')  ,
+                    'message' =>trans('api.rate_not_available')  ,
                     'data' =>[]
                 ]); 
             }
         }else{
-            return response([
-                'status' =>false ,
-                'message' =>trans('Visit Id not available')  ,
-                'data' =>[]
-            ]); 
+            foreach ((array)$validator->errors() as $value){
+                if (isset($value['visit_id'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.visit_id_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['rate'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.rate_requred') ,
+                        'data' =>[]
+                    ]);
+                }  else{
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.fail') ,
+                        'data' =>[]
+                    ]);
+                }
+             }
         }
 
     }
 
-    public function UserReservation(Request $request){
-        $user_id = Auth()->user()->id;
-        $visits = Visit::where('user_id',$user_id)->where('choice',$request->type)
-        ->orderBy('id','DESC')->get();
-        if($visits){
-            $data = [];
-            foreach($visits as $visit){
-                $arr['id'] = $visit->id;
-                $arr['time'] = $visit->time ? $visit->time : "";
-                $arr['date'] = $visit->date ? $visit->date : "";
-                $arr['appointment_id'] = $visit->appointment_id ? $visit->appointment_id : "";
-                $arr['type'] = $visit->type;
-                $arr['status'] = $visit->status ? $visit->status : 'Away';
-                if($request->type == 'test'){
-                    $arr['test'] = $visit->test->translate('en')->name;
-                }else{
-                    $arr['offer'] = $visit->offer->translate('en')->name;
+    public function UserReservation(Request $request)
+    {
+        $validator=Validator::make($request->all(),[
+            'type'=>'required'
+        ]);
+        if ($validator->passes()) {
+            $user_id = Auth()->user()->id;
+            $visits = Visit::where('user_id',$user_id)->where('choice',$request->type)
+            ->orderBy('id','DESC')->get();
+            if(count($visits)>0){
+                $data = [];
+                foreach($visits as $visit){
+
+                    $arr['id'] = $visit->id;
+                    $arr['time'] = $visit->time ? $visit->time : "";
+                    $arr['date'] = $visit->date ? $visit->date : "";
+                    $arr['appointment_id'] = $visit->appointment_id ? $visit->appointment_id : "";
+                    $arr['type'] = $visit->type;
+                    $arr['status'] = $visit->status ? $visit->status : 'Away';
+                    if($request->type == 'test'){
+                        $arr['test'] = $visit->test->translate('en')->name;
+                    }else{
+                        $arr['offer'] = $visit->offer->translate('en')->name;
+                    }
+                    $data[] = $arr;
                 }
-                $data[] = $arr;
+                return response([
+                    'status' =>true ,
+                    'message' =>trans('api.umy_reservations')  ,
+                    'data' =>$data
+                ]); 
+            }else{
+                return response([
+                    'status' =>false ,
+                    'message' =>trans('api.no_reservations')  ,
+                    'data' =>[]
+                ]); 
             }
-            return response([
-                'status' =>true ,
-                'message' =>trans('user reservations')  ,
-                'data' =>$data
-            ]); 
         }else{
-            return response([
-                'status' =>false ,
-                'message' =>trans('user has no reservations')  ,
-                'data' =>[]
-            ]); 
+            foreach ((array)$validator->errors() as $value){
+                if (isset($value['type'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.type_requred') ,
+                        'data' =>[]
+                    ]);
+                }  else{
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.fail') ,
+                        'data' =>[]
+                    ]);
+                }
+             }
         }
     }
     
@@ -110,13 +250,13 @@ class ReservationController extends Controller
             $visit->delete();
             return response([
                 'status' =>true ,
-                'message' =>trans('Reservation deleted successfully')  ,
+                'message' =>trans('api.reservation_deleted')  ,
                 'data' =>[]
             ]); 
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans('Reservation not valid')  ,
+                'message' =>trans('api.reservation_not_valid')  ,
                 'data' =>[]
             ]); 
         }
@@ -128,43 +268,61 @@ class ReservationController extends Controller
         if($visit){
             $visit->status = 'cancel';
             $visit->save();
+            $data['id'] = $visit->id;
+            $data['name'] = $visit->name;
+            $data['photo'] = asset($visit->photo);
+            $data['phone'] = $visit->phone;
+            $data['status'] = $visit->status;
+            $data['type'] = $visit->choice;
+            $data['appointment'] = $visit->appointment->date;
+            $data['user'] = $visit->user->name;
+            if($visit->choice == 'test'){
+                $data['test'] = $visit->test->translate('en')->name;
+            }else{
+                $data['offer'] = $visit->offer->translate('en')->name;
+            }
             return response([
                 'status' =>true ,
-                'message' =>trans('Reservation Canceled successfully')  ,
-                'data' =>[]
+                'message' =>trans('api.reservation_canceled')  ,
+                'data' =>$data
             ]); 
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans('Reservation not valid')  ,
+                'message' =>trans('api.reservation_not_valid')  ,
                 'data' =>[]
             ]); 
         }
     }
 
     public function UserReservationResult(Request $request){
-        $user_id = Auth()->user()->id;
+        $user_id = auth()->user()->id;
         $results = Result::where('user_id',$user_id)->get();
-        if($results){
+        if(count($results)>0){
             $data = [];
             foreach($results as $result){
                 $arr['id'] = $result->id;
                 $arr['time'] = $result->time;
                 $arr['date'] = $result->date;
-                $arr['file'] = url('/').'/'.$result->file;
+                $arr['file'] = asset($result->file);
                 $arr['seen'] = $result->seen ? '1':'0';
-                $arr['test'] = $result->visit->test->translate('en')->name;
+                $arr['type'] = $result->visit->choice;
+                if($result->visit->choice == 'test'){
+                    $arr['test'] = $result->visit->test->translate('en')->name;
+                }else{
+                    $arr['offer'] = $result->visit->offer->translate('en')->name;
+                }
                 $data[] = $arr;
             }
             return response([
                 'status' =>true ,
-                'message' =>trans('User results')  ,
+                'message' =>trans('api.user_results')  ,
                 'data' => $data
             ]);  
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans('User has no results')  ,
+                'message' =>trans('api.user_has_no_results')  ,
                 'data' =>[]
             ]);  
         }
@@ -178,18 +336,23 @@ class ReservationController extends Controller
             $data['id'] = $result->id;
             $data['time'] = $result->time;
             $data['date'] = $result->date;
-            $data['file'] = url('/').'/'.$result->file;
+            $data['file'] = asset($result->file);
             $data['seen'] = $result->seen;
-            $data['test'] = $result->visit->test->translate('en')->name;
+            $data['type'] = $result->visit->choice;
+            if($result->visit->choice == 'test'){
+                $data['test'] = $result->visit->test->translate('en')->name;
+            }else{
+                $data['offer'] = $result->visit->offer->translate('en')->name;
+            }
             return response([
-                'status' =>false ,
-                'message' =>trans('Result Derails')  ,
+                'status' =>true ,
+                'message' =>trans('api.ResultDerails')  ,
                 'data' => $data
             ]);
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans('Result not valid')  ,
+                'message' =>trans('api.ResultNotValid')  ,
                 'data' =>[]
             ]);  
         }
@@ -203,18 +366,34 @@ class ReservationController extends Controller
             $data['id'] = $result->id;
             $data['time'] = $result->time;
             $data['date'] = $result->date;
-            $data['file'] = url('/').'/'.$result->file;
+            $data['file'] = asset($result->file);
             $data['seen'] = $result->seen;
+<<<<<<< HEAD
             $data['test'] = $result->visit->test->translate('en')->name;
             return response([
                 'status' => false ,
                 'message' =>trans('Result Derails')  ,
+=======
+            $data['type'] = $result->visit->choice;
+            if($result->visit->choice == 'test'){
+                $data['test'] = $result->visit->test->translate('en')->name;
+            }else{
+                $data['offer'] = $result->visit->offer->translate('en')->name;
+            }            return response([
+                'status' =>true ,
+                'message' =>trans('api.ResultDerails')  ,
+>>>>>>> 7445ef0b19da4356b37e832ddb7d38fafd6173fe
                 'data' => $data
             ]);
         }else{
             return response([
+<<<<<<< HEAD
                 'status' => false ,
                 'message' =>trans('Result not valid')  ,
+=======
+                'status' =>false ,
+                'message' =>trans('api.ResultNotValid')  ,
+>>>>>>> 7445ef0b19da4356b37e832ddb7d38fafd6173fe
                 'data' =>[]
             ]);  
         }
@@ -222,18 +401,102 @@ class ReservationController extends Controller
 
     public function lab_reservation(Request $request)
     {
-        $data = $request->all();
-        if($request->type == 'test'){
-            $data['choice'] = 'test';
-            $data['test_id'] = $request->type_id;
-        }else{
-            $data['choice'] = 'offer';
-            $data['offer_id'] = $request->type_id;
+        $validator=Validator::make($request->all(),[
+            'appointment_id'=>'required',
+            'name'=>'required',
+            'phone'=>'required',
+            'photo'=>'required',
+            'type'=>'required',
+            'type_id'=>'required',
+        ]);
+        if ($validator->passes()) {
+            $data = $request->all();
+            if($request->type == 'test'){
+                $data['choice'] = 'test';
+                $data['test_id'] = $request->type_id;
+            }else{
+                $data['choice'] = 'offer';
+                $data['offer_id'] = $request->type_id;
+            }
+            if($request->hasFile('photo'))
+            {
+                $fileName = upload_image($request->file('photo'), 'photo');
+            }
+            $data['photo'] = $fileName;
+            $data['type']  = 'lab';
+            $data['user_id'] = Auth()->user()->id;
+            $visit = Visit::create($data);
+            $data['id'] = $visit->id;
+            $data['name'] = $visit->name;
+            $data['photo'] = asset($visit->photo);
+            $data['phone'] = $visit->phone;
+            $data['type'] = $visit->choice;
+            $data['appointment'] = $visit->appointment->date;
+            $data['user'] = $visit->user->name;
+            if($visit->choice == 'test'){
+                $data['test'] = $visit->test->translate('en')->name;
+            }else{
+                $data['offer'] = $visit->offer->translate('en')->name;
+            }
+            return response([
+                'status' =>true ,
+                'message' =>trans('api.reservation_sent')  ,
+                'data' =>$data
+            ]); 
+         }else{
+            foreach ((array)$validator->errors() as $value){
+                if (isset($value['appointment_id'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.appointment_id_required') ,
+                        'data' =>[]
+                    ]);
+                }elseif (isset($value['name'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.name_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['phone'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.phone_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['photo'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.photo_required') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['type'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.type_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['address_id'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.address_id_requred') ,
+                        'data' =>[]
+                    ]);
+                }  elseif (isset($value['type_id'])) {
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.type_id_requred') ,
+                        'data' =>[]
+                    ]);
+                }else{
+                    return response()->json([
+                        'status' =>false ,
+                        'message' =>trans('api.fail') ,
+                        'data' =>[]
+                    ]);
+                }
+             }
         }
-        if($request->hasFile('photo'))
-        {
-            $fileName = upload_image($request->file('photo'), 'photo');
-        }
+<<<<<<< HEAD
         $data['photo'] = $fileName;
         $data['type']  = 'lab';
         $data['user_id'] = Auth()->user()->id;
@@ -243,5 +506,7 @@ class ReservationController extends Controller
             'message' => trans('lab reservation request sent successfully')  ,
             'data' =>[]
         ]); 
+=======
+>>>>>>> 7445ef0b19da4356b37e832ddb7d38fafd6173fe
     }
 }

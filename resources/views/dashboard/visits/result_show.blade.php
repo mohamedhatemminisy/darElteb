@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">Test Result </h3>
+                    <h3 class="content-header-title">{{trans('admin.results')}} </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Test Result
+                                <li class="breadcrumb-item active">{{trans('admin.results')}}
                                 </li>
                             </ol>
                         </div>
@@ -43,7 +43,7 @@
              
                                     <div class="col form-group">
  
-                                        <label>Date </label>
+                                        <label>{{trans('admin.date')}} </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $result->date  }}</p>
                                 
@@ -51,7 +51,7 @@
 
                                     <div class="col form-group">
  
-                                        <label>Time </label>
+                                        <label>{{trans('admin.time')}} </label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $result->time  }}</p>
                                 
@@ -59,7 +59,7 @@
  
                                     <div class="col form-group">
  
-                                        <label>Result checked </label>
+                                        <label>{{trans('admin.status')}}</label>
                                         <p class="alert alert-info" 
                                         style="background-color:rgb(26,60,119)">{{ $result->seen ? 'Checked' : 'Not checked'  }}</p>
                                 
@@ -68,8 +68,8 @@
 
                                     <div class="col form-group">
  
-                                        <label>File </label>
-                                        <p><a href="{{asset($result->file)}}" download> download files</p>
+                                        <label>{{trans('admin.file')}} </label>
+                                        <p><a href="{{asset($result->file)}}" download>{{trans('admin.download_file')}}  </p>
                                 
                                     </div>
 

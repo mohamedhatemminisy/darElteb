@@ -43,7 +43,13 @@ class OfferRequest extends FormRequest
 
     public function messages()
     {
-        $messages = [];
+        $messages = [
+            'tests.required' =>  trans('admin.error_message.tests_required'),
+            'target.required' =>  trans('admin.error_message.target_required'),
+            'gender.required_if' =>  trans('admin.error_message.gender_required'),
+            'age.required_if' =>  trans('admin.error_message.age_required'),
+            'image.required' =>  trans('admin.error_message.image_required'),
+        ];
         foreach (config('translatable.locales') as $locale) {
             $messages += [$locale . '.name.required' => trans('admin.error_message.name_required_' . $locale)];
             $messages += [$locale . '.description.required' => trans('admin.error_message.description_required_' . $locale)];
