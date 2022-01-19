@@ -389,7 +389,6 @@ template {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom : 0.5rem;
-  font-family : 'Quicksand', Georgia, 'Times New Roman', Times, serif;
   font-weight : 400;
   line-height : 1.2;
   color : #464855;
@@ -3430,15 +3429,14 @@ tbody.collapse.show {
   background-color : transparent;
   border : 0;
 }
-.dropdown-item:hover, .dropdown-item:focus {
-  color : #1E2122;
+.dropdown-item:hover, 
+.dropdown-item.active, 
+.dropdown-item:active ,
+.dropdown-item:focus {
+
   text-decoration : none;
   background-color : #F9FAFD;
-}
-.dropdown-item.active, .dropdown-item:active {
-  color : #FFFFFF;
-  text-decoration : none;
-  background-color : #1E9FF2;
+
 }
 .dropdown-item.disabled, .dropdown-item:disabled {
   color : #6B6F82;

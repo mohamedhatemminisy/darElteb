@@ -213,7 +213,6 @@
         });
     });
 
-
     $(document).on('click', '.menu-toggle, .modern-nav-toggle', function(e) {
         e.preventDefault();
 
@@ -224,9 +223,11 @@
             $(window).trigger( "resize" );
         },200);
 
+
         if($('#collapsed-sidebar').length > 0){
             setTimeout(function(){
                 if($body.hasClass('menu-expanded') || $body.hasClass('menu-open')){
+
                     $('#collapsed-sidebar').prop('checked', false);
                 }
                 else{
@@ -318,9 +319,9 @@
     });
 
     // Update manual scroller when window is resized
-    $(window).resize(function() {
-        $.app.menu.manualScroller.updateHeight();
-    });
+    // $(window).resize(function() {
+    //     $.app.menu.manualScroller.updateHeight();
+    // });
 
     // TODO : Tabs dropdown fix, remove this code once fixed in bootstrap 4.
     $('.nav.nav-tabs a.dropdown-item').on('click',function(){

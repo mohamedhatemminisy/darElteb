@@ -2236,10 +2236,15 @@ tbody.collapse.show {
   white-space: nowrap;
   background-color: transparent;
   border: 0; }
-  .dropdown-item:hover, .dropdown-item:focus {
-    color: #1e2122;
-    text-decoration: none;
-    background-color: #F9FAFD; }
+  .dropdown-item:hover, 
+  .dropdown-item.active, 
+  .dropdown-item:active ,
+  .dropdown-item:focus {
+
+    text-decoration : none;
+    background-color : #F9FAFD;
+
+  }
   .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;

@@ -18,7 +18,7 @@
     var btcChartjs = document.getElementById("btc-chartjs").getContext("2d");
     // Create Linear Gradient
     var blue_trans_gradient = btcChartjs.createLinearGradient(0, 0, 0, 100);
-    blue_trans_gradient.addColorStop(0, 'rgba(255, 145, 73,0.4)');
+    blue_trans_gradient.addColorStop(0, 'rgba(30,159,242,0.4)');
     blue_trans_gradient.addColorStop(1, 'rgba(255,255,255,0)');
     // Chart Options
     var BTCStats = {
@@ -26,7 +26,7 @@
         maintainAspectRatio: false,
         datasetStrokeWidth : 3,
         pointDotStrokeWidth : 4,
-        tooltipFillColor: "rgba(255, 145, 73,0.8)",
+        tooltipFillColor: "rgba(30,159,242,0.8)",
         legend: {
             display: false,
         },
@@ -61,9 +61,9 @@
             label: "BTC",
             data: [20, 18, 35, 60, 38, 40, 70],
             backgroundColor: blue_trans_gradient,
-            borderColor: "#FF9149",
+            borderColor: "#1169B0",
             borderWidth: 1.5,
-            strokeColor : "#FF9149",
+            strokeColor : "#1169B0",
             pointRadius: 0,
         }]
     };
@@ -88,7 +88,7 @@
     var ethChartjs = document.getElementById("eth-chartjs").getContext("2d");
     // Create Linear Gradient
     var blue_trans_gradient = ethChartjs.createLinearGradient(0, 0, 0, 100);
-    blue_trans_gradient.addColorStop(0, 'rgba(120, 144, 156,0.4)');
+    blue_trans_gradient.addColorStop(0, 'rgba(30,159,242,0.4)');
     blue_trans_gradient.addColorStop(1, 'rgba(255,255,255,0)');
     // Chart Options
     var ETHStats = {
@@ -96,7 +96,7 @@
         maintainAspectRatio: false,
         datasetStrokeWidth : 3,
         pointDotStrokeWidth : 4,
-        tooltipFillColor: "rgba(120, 144, 156,0.8)",
+        tooltipFillColor: "rgba(30,159,242,0.8)",
         legend: {
             display: false,
         },
@@ -131,9 +131,9 @@
             label: "ETH",
             data: [40, 30, 60, 40, 45, 30, 60],
             backgroundColor: blue_trans_gradient,
-            borderColor: "#78909C",
+            borderColor: "#1169B0",
             borderWidth: 1.5,
-            strokeColor : "#78909C",
+            strokeColor : "#1169B0",
             pointRadius: 0,
         }]
     };
@@ -199,9 +199,9 @@
             label: "XRP",
             data: [70, 20, 35, 60, 20, 40, 30],
             backgroundColor: blue_trans_gradient,
-            borderColor: "#1E9FF2",
+            borderColor: "#1169B0",
             borderWidth: 1.5,
-            strokeColor : "#1E9FF2",
+            strokeColor : "#1169B0",
             pointRadius: 0,
         }]
     };
@@ -250,7 +250,7 @@ $(window).on("load", function(){
 
             // Initialize chart
             // ------------------------------
-            var myChart = ec.init(document.getElementById('btc-candlestick-control'));
+            var myChart = ec.init(document.getElementById('btc-chartjs'));
 
             // Chart Options
             // ------------------------------
@@ -502,7 +502,7 @@ $(window).on("load", function(){
             // Apply options
             // ------------------------------
 
-            myChart.setOption(chartOptions);
+           myChart.setOption(chartOptions);
 
 
             // Resize chart

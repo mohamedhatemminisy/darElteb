@@ -70,6 +70,7 @@ return [
     'update'         => 'تحديث',
     'wrong_data'     => 'البيانات غير صحيحة',
     'upload_csv'     => 'تحميل ملف csv',
+    
 
 
 ];

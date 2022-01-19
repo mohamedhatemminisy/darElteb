@@ -35,7 +35,7 @@
           background-color: transparent;
         }
       } */
-.btn-white {
+/* .btn-white {
   border-color: !important;
   background-color: #FFFFFF !important;
   color: #FFFFFF; }
@@ -46,7 +46,7 @@
   .btn-white:focus, .btn-white:active {
     border-color: !important;
     background-color: !important;
-    color: #FFF !important; }
+    color: #FFF !important; } */
   .btn-white.btn-glow {
     box-shadow: 0px 1px 20px 1px rgba(255, 255, 255, 0.6); }
 
@@ -123,7 +123,7 @@ input:focus ~ .bg-white {
           background-color: transparent;
         }
       } */
-.btn-black {
+/* .btn-black {
   border-color: !important;
   background-color: #000000 !important;
   color: #FFFFFF; }
@@ -134,7 +134,7 @@ input:focus ~ .bg-white {
   .btn-black:focus, .btn-black:active {
     border-color: !important;
     background-color: !important;
-    color: #FFF !important; }
+    color: #FFF !important; } */
   .btn-black.btn-glow {
     box-shadow: 0px 1px 20px 1px rgba(0, 0, 0, 0.6); }
 
@@ -1817,13 +1817,24 @@ input:focus ~ .bg-info {
   .bg-info.bg-glow {
     box-shadow: 0px 1px 20px 1px rgba(30, 159, 242, 0.6); }
 
+    
+    .bg-gradient{
+
+      background:linear-gradient(to right, #204E6B , #1169B0 , #4099D3 100%)
+    
+    }
+    
+
 .selectboxit.selectboxit-btn.bg-info {
   background-color: #1E9FF2 !important; }
 
 .alert-info {
-  border-color: #1E9FF2 !important;
-  background-color: #62bcf6 !important;
-  color: #053858 !important; }
+
+    border-color: #62aef5 !important;
+    background-color: #62aef5 !important;
+    color: #fff !important;
+
+}
   .alert-info .alert-link {
     color: #031f32 !important; }
 
@@ -3218,10 +3229,13 @@ input:focus ~ .bg-danger {
 .selectboxit.selectboxit-btn.bg-danger {
   background-color: #FF4961 !important; }
 
-.alert-danger {
-  border-color: #FF4961 !important;
-  background-color: #ff909f !important;
-  color: #960014 !important; }
+  .alert-danger {
+
+    border-color: #f34b4b !important;
+    background-color: #f34b4b !important;
+    color: #fff !important;
+ 
+ }
   .alert-danger .alert-link {
     color: #6d000e !important; }
 
@@ -10291,7 +10305,7 @@ input:focus ~ .bg-grey-blue {
   .bg-shades.bg-black.bg-glow {
     box-shadow: 0px 1px 20px 1px rgba(0, 0, 0, 0.6); }
 
-.btn-shades.btn-black {
+/* .btn-shades.btn-black {
   border-color: !important;
   background-color: #000000 !important; }
   .btn-shades.btn-black:hover {
@@ -10299,7 +10313,7 @@ input:focus ~ .bg-grey-blue {
     background-color: !important; }
   .btn-shades.btn-black:focus, .btn-shades.btn-black:active {
     border-color: !important;
-    background-color: !important; }
+    background-color: !important; } */
 
 .btn-outline-shades.btn-outline-black {
   border-color: #000000 !important;
@@ -10338,7 +10352,7 @@ input:focus ~ .bg-shades {
   .bg-shades.bg-white.bg-glow {
     box-shadow: 0px 1px 20px 1px rgba(255, 255, 255, 0.6); }
 
-.btn-shades.btn-white {
+/* .btn-shades.btn-white {
   border-color: !important;
   background-color: #FFFFFF !important; }
   .btn-shades.btn-white:hover {
@@ -10346,7 +10360,7 @@ input:focus ~ .bg-shades {
     background-color: !important; }
   .btn-shades.btn-white:focus, .btn-shades.btn-white:active {
     border-color: !important;
-    background-color: !important; }
+    background-color: !important; } */
 
 .btn-outline-shades.btn-outline-white {
   border-color: #FFFFFF !important;
@@ -10385,7 +10399,7 @@ input:focus ~ .bg-shades {
   .bg-shades.bg-transparent.bg-glow {
     box-shadow: 0px 1px 20px 1px rgba(0, 0, 0, 0.6); }
 
-.btn-shades.btn-transparent {
+/* .btn-shades.btn-transparent {
   border-color: !important;
   background-color: transparent !important; }
   .btn-shades.btn-transparent:hover {
@@ -10393,7 +10407,7 @@ input:focus ~ .bg-shades {
     background-color: !important; }
   .btn-shades.btn-transparent:focus, .btn-shades.btn-transparent:active {
     border-color: !important;
-    background-color: !important; }
+    background-color: !important; } */
 
 .btn-outline-shades.btn-outline-transparent {
   border-color: transparent !important;

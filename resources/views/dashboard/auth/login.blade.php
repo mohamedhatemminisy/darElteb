@@ -1,65 +1,95 @@
 @extends('layouts.login')
 
-@section('content')
+ @section('content')
 
-    <section class="flexbox-container">
-        <div class="col-12 d-flex align-items-center justify-content-center">
-            <div class="col-md-4 col-10 box-shadow-2 p-0">
-                <div class="card border-grey border-lighten-3 m-0">
-                    <div class="card-header border-0">
-                        <div class="card-title text-center">
-                            <div class="p-1">
-                                <img src="{{asset('assets/front/images/logo.png')}}" alt="LOGO"/>
-
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                            <span>@lang('admin.admin_login')
-                                 </span>
-                        </h6>
+   
+    <section class="login">
+        <div class="container-fluid">
+        <div class="language position-relative">
+          <ul class="list-unstyled">
+              <li class="lang-en">
+                   <a>
+                     <span class="lang-icon">
+                     <i class="las la-globe la-lg" aria-hidden="true"></i>
+                     </span>
+                     <span class="lang-text"> 
+                       @lang('admin.en')                                       
+                     </span> 
+                 </a>
+          
+              </li>
+              <li class="lang-ar">
+                   <a>
+                     <span class="lang-icon">
+                     <i class="las la-globe la-lg" aria-hidden="true"></i>
+                     </span>
+                     <span class="lang-text"> 
+                       @lang('admin.ar')                                      
+                    </span> 
+                 </a>
+              </li>
+            
+          </ul>
+         
+      </div>
+        </div>
+      <div class="container">
+      
+         <div class="row">
+            <div class="col-lg-7 col-md-12  mx-auto">
+            <div class="navbar-brand d-block text-center  mx-auto">
+                  <img src="{{asset('assets/admin/images/logo/logo.png')}}" class="img-responsive lazyload" data-src="{{asset('assets/admin/images/logo/logo.png')}}" alt="logo"/>
+                </div>  
+                <div class="card mx-0">
+                    <div class="card-header border-0 pb-0">
+                        <h3 class="text-center">
+                            @lang('admin.admin_login')
+                        </h3>
                     </div>
                     @include('dashboard.includes.alerts.errors')
                 @include('dashboard.includes.alerts.success')
                     <div class="card-content">
-                        <div class="card-body">
-                            <form class="form-horizontal form-simple" action="{{route('admin.post.login')}}" method="post"
-                                  novalidate>
+                        <div class="card-body pt-0">
+                            <form  action="{{route('admin.post.login')}}" method="post"novalidate>
                                 @csrf
 
-                                <fieldset class="form-group position-relative has-icon-left mb-0">
-                                    <input type="text" name="email" class="form-control form-control-lg input-lg"
-                                           value="" id="email" placeholder="@lang('admin.email')">
+                                <div class="form-group form-icon position-relative">
+                                    <label class="form-label login-label">@lang('admin.email')</label>
+                                    <input type="text" name="email" class="form-control"
+                                          id="email" placeholder="@lang('admin.email_address')">
                                     <div class="form-control-position">
-                                        <i class="ft-user"></i>
-                                    </div>
-
+                                       <i class="las la-user-alt la-lg" aria-hidden="true"></i>
+                                    </div>       
                                     @error('email')
                                      <span class="text-danger">{{$message}}</span>
                                      @enderror
-                                </fieldset>
-                                <fieldset class="form-group position-relative has-icon-left">
-                                    <input type="password" name="password" class="form-control form-control-lg input-lg"
-                                           id="user-password"
-                                           placeholder="@lang('admin.password')">
+                                </div>
+                                <div class="form-group form-icon position-relative">
+                                    <label class="form-label">@lang('admin.password')</label>
+                                    <input type="password" name="password" class="form-control"
+                                        id="user-password" placeholder="*********">
                                     <div class="form-control-position">
-                                        <i class="la la-key"></i>
+                                       <i class="las la-key la-lg" aria-hidden="true"></i>
                                     </div>
-
                                     @error('password')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
+                                </div>
 
-                                </fieldset>
+                                <div class="btn-group position-relative gradient w-100">
+                                   <span class="wrap-text"> @lang('admin.login')</span>
+                                   <button class="btn btn-gradient w-100" type="submit">
+                                      @lang('admin.login')
+                                  </button>
+                               </div>   
              
-                                <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>
-                                @lang('admin.login')
-                                </button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
+      </div>
     </section>
 
-    @stop
+ @stop

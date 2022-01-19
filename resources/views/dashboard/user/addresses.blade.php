@@ -2,56 +2,72 @@
 @extends('layouts.admin')
 @section('content')
 
-    <div class="app-content content">
-        <div class="content-wrapper">
-            <div class="content-header row">
-                <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">{{trans('admin.users')}} </h3>
-                    <div class="row breadcrumbs-top">
-                        <div class="breadcrumb-wrapper col-12">
+   
+            <div class="content-header px-1 mb-2">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="content-header-title">
+                      <h2 class="text-white">{{trans('admin.users')}} </h2>
+                    </div>    
+                    <div class="breadcrumbs-top">
+                        <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
+                                <li class="breadcrumb-item">
+                                    <a href="{{route('admin.dashboard')}}">
+                                        {{trans('admin.home')}}
+                                    </a>
                                 </li>
-                                <li class="breadcrumb-item active">{{trans('admin.users')}}
+                                <li class="breadcrumb-item">
+                                    <a href="{{route('users')}}">
+                                      {{trans('admin.users')}}
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    <a>{{trans('admin.addresses')}} </a>
                                 </li>
                             </ol>
                         </div>
                     </div>
+                   </div>     
                 </div>
             </div>
             <div class="content-body">
-                <!-- DOM - jQuery events table -->
-                <section id="dom">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title"> {{trans('admin.users')}} </h4>
-                                    <a class="heading-elements-toggle"><i
-                                            class="la la-ellipsis-v font-medium-3"></i></a>
-                                    <div class="heading-elements">
+                            <div class="card pull-up">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                  <div class="card-title">
+                                      <h3> {{trans('admin.addresses')}} </h3>
+                                   </div> 
+                                  <div class="btn-icons">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                        <li>
+                                              <a data-action="collapse">
+                                                <i class="las la-minus la-lg" aria-hidden="true"></i>
+                                              </a>
+                                            </li>
+                                            <li>
+                                                <a data-action="reload">
+                                                    <i class="las la-sync la-lg" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
 
-                                @include('dashboard.includes.alerts.success')
-                                @include('dashboard.includes.alerts.errors')
-
+                                
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
-                                        <table
-                                            class="table display nowrap table-striped table-bordered">
-                                            <thead class="">
+                                     @include('dashboard.includes.alerts.success')
+                                     @include('dashboard.includes.alerts.errors')
+                                      <div class="table-responsive">
+                                         <table class="table  table-striped table-hovered" aria-describedby="table">
+                                            <thead>
                                             <tr>
-                                                <th>City</th>
-                                                <th>Street</th>
-                                                <th>Building Number </th>
-                                                <th>Floor Number</th>
+                                                <th scope="col">City</th>
+                                                <th scope="col">Street</th>
+                                                <th scope="col">Building Number </th>
+                                                <th scope="col">Floor Number</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -69,16 +85,13 @@
 
 
                                             </tbody>
-                                        </table>
+                                         </table>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                </section>
             </div>
-        </div>
-    </div>
 
 @stop
