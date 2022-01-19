@@ -2,7 +2,6 @@
 @extends('layouts.admin')
 @section('content')
 
-<<<<<<< HEAD
     
         <div class="content-header px-1 mb-2">
                 <div class="row">
@@ -12,28 +11,15 @@
                     </div>  
                     <div class="breadcrumbs-top">
                         <div class="breadcrumb-wrapper">
-=======
-    <div class="app-content content">
-        <div class="content-wrapper">
-            <div class="content-header row">
-                <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> {{trans('admin.Offers')}}</h3>
-                    <div class="row breadcrumbs-top">
-                        <div class="breadcrumb-wrapper col-12">
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
                                 </li>
-<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('offers.index')}}">{{trans('admin.offers')}}</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <a>{{trans('admin.offer_details')}}</a>
-=======
-                                <li class="breadcrumb-item active"> {{trans('admin.Offers')}}
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                             </ol>
                         </div>
@@ -99,7 +85,6 @@
                                         @endforeach
 
 
-<<<<<<< HEAD
                                     <div class="card-details mb-2">
                                       <div class="details-text">
                                         <h5>Type</h5>
@@ -133,33 +118,6 @@
                                             <h5>Tests</h5>
                                        </div>
                                         
-=======
-                                    <div class="col form-group">
- 
-                                        <label> {{trans('admin.type')}} </label>
-                                        <p class="alert alert-info" 
-                                        style="background-color:rgb(26,60,119)">{{ $offer->type  }}</p>
-                                
-                                    </div>
-
-                                    <div class="col form-group">
- 
-                                        <label> {{trans('admin.target')}} </label>
-                                        <p class="alert alert-info" 
-                                        style="background-color:rgb(26,60,119)">{{ $offer->target  }}</p>
-                                
-                                    </div>
- 
-                                    <div class="col form-group">
-                                            <label> {{trans('admin.value')}} </label>
-                                            <p class="alert alert-info" 
-                                            style="background-color:rgb(26,60,119)">{{ $offer->value  }}</p>
-                                    </div>
-
- 
-                                    <div class="col form-group">
-                                            <label> {{trans('admin.Tests')}} </label>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                             @php
                                             $ids = json_decode($offer->tests);
                                             $tests = App\Models\Test::whereIn('id',json_decode($offer->tests))->get();

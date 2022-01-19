@@ -112,11 +112,9 @@ return [
     'update'         => 'Update',
     'wrong_data'     => 'Your data is not correct',
     'upload_csv'     => 'Upload csv',
-<<<<<<< HEAD
     'copyright'      =>  'CopyRight',
     'orcavision'     =>  'Orca Vision',
     'rightreserved'  =>  'All Right Reserved',
-=======
 
     'test_count'   => 'Test count',
     'offers_count'   => 'Offers count',
@@ -178,8 +176,6 @@ return [
     'FloorNumber'   => 'Floor Number',
     'password' => 'password',
     'test' => 'test',
-    'copy'  => 'All rights reserved.'
+    'copy'  => 'All rights reserved.' , 
     
-
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
 ];

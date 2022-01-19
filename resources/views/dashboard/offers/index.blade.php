@@ -2,7 +2,6 @@
 @extends('layouts.admin')
 @section('content')
 
-<<<<<<< HEAD
    
             <div class="content-header px-1 mb-2">
               <div class="row">
@@ -12,29 +11,16 @@
                    </div>
                     <div class="breadcrumbs-top">
                         <div class="breadcrumb-wrapper">
-=======
-    <div class="app-content content">
-        <div class="content-wrapper">
-            <div class="content-header row">
-                <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">{{trans('admin.Offers')}}</h3>
-                    <div class="row breadcrumbs-top">
-                        <div class="breadcrumb-wrapper col-12">
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">
                                         {{trans('admin.home')}}
                                     </a>
                                 </li>
-<<<<<<< HEAD
                                 <li class="breadcrumb-item active">
                                    <a> 
                                    {{trans('admin.offers')}}
                                    </a>
-=======
-                                <li class="breadcrumb-item active">{{trans('admin.Offers')}}
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                             </ol>
                         </div>
@@ -46,21 +32,12 @@
               
                 <div class="row">
                         <div class="col-12">
-<<<<<<< HEAD
                             <div class="card pull-up">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <div class="card-title">
                                     <h3>  {{trans('admin.offers')}}</h3>
                                 </div> 
                                 <div class="btn-icons">
-=======
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title"> {{trans('admin.Offers')}}</h4>
-                                    <a class="heading-elements-toggle"><i
-                                            class="la la-ellipsis-v font-medium-3"></i></a>
-                                    <div class="heading-elements">
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                         <ul class="list-inline mb-0">
                                         <li>
                                               <a data-action="collapse">
@@ -84,21 +61,12 @@
                                         <table class="table  table-striped table-hovered" aria-describedby="table">
                                             <thead>
                                             <tr>
-<<<<<<< HEAD
                                                 <th scope="col">#</th>
                                                 <th scope="col">{{trans('admin.name')}}</th>
                                                 <th scope="col">Type </th>
                                                 <th scope="col">Target</th>
                                                 <th scope="col">Value</th>
                                                 <th scope="col">{{trans('admin.action')}}</th>
-=======
-                                                <th>#</th>
-                                                <th>{{trans('admin.name')}}</th>
-                                                <th>@lang('admin.type') </th>
-                                                <th>@lang('admin.target')</th>
-                                                <th>@lang('admin.value')</th>
-                                                <th>{{trans('admin.action')}}</th>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                             </tr>
                                             </thead>
                                             <tbody>

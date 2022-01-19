@@ -74,7 +74,6 @@ return [
     'detelted_sucess' => 'Data deleted successfully',
     'try_again'       => 'There is a problem you can try in other time',
 
-=======
     'updated'        => 'تم تحديث البيانات بنجاح',
     'welcome'        => 'مرحبا',
     'languages'      => 'اللغات',
@@ -116,7 +115,6 @@ return [
     'coun_not_found' => 'الدولة غير موجوده',
     'detelted_sucess' => 'تم حذف البيانات بنجاح',
     'try_again'       => 'توجد مشكلة ما يمكن المحاولة في وقت لاحق',
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
 
     'error_message' =>[
         'name_required'         =>  'الاسم مطلوب',
@@ -171,7 +169,7 @@ return [
     'update'         => 'تحديث',
     'wrong_data'     => 'البيانات غير صحيحة',
     'upload_csv'     => 'تحميل ملف csv',
- 
+    
     'test_count'   => 'عدد الاختبارات',
     'offers_count'   => 'عدد العروض',
     'reservations_count'   => 'عدد الحجوزات',

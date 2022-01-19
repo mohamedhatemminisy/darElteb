@@ -64,17 +64,10 @@
                                          <table class="table  table-striped table-hovered" aria-describedby="table">
                                             <thead>
                                             <tr>
-<<<<<<< HEAD
                                                 <th scope="col">City</th>
                                                 <th scope="col">Street</th>
                                                 <th scope="col">Building Number </th>
                                                 <th scope="col">Floor Number</th>
-=======
-                                                <th>{{trans('admin.City')}}</th>
-                                                <th>{{trans('admin.Street')}}</th>
-                                                <th>{{trans('admin.BuildingNumber')}} </th>
-                                                <th>{{trans('admin.FloorNumber')}}</th>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                             </tr>
                                             </thead>
                                             <tbody>

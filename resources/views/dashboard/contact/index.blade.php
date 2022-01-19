@@ -11,14 +11,10 @@
                     <div class="breadcrumbs-top">
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">
                                     {{trans('admin.home')}} 
                                     </a>
-=======
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin.home')</a>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <a>{{trans('admin.contact')}}</a>

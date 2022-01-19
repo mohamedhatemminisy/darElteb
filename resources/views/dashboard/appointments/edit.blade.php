@@ -17,14 +17,10 @@
                                     {{trans('admin.home')}} 
                                 </a>
                                 </li>
-<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('appointments.index')}}">
                                       {{trans('admin.appointments')}}
                                     </a>
-=======
-                                <li class="breadcrumb-item"><a href="{{route('appointments.index')}}">{{trans('admin.Appointments')}} </a>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                                 <li class="breadcrumb-item active"> 
                                     <a>
@@ -38,7 +34,6 @@
                 </div>
             </div>
             <div class="content-body">
-<<<<<<< HEAD
                 <div class="row">
                         <div class="col-12">
                            <div class="card pull-up">
@@ -47,19 +42,6 @@
                                    <h3> {{trans('admin.edit')}} {{trans('admin.countries')}} </h3>
                                   </div>
                                   <div class="btn-icons">
-=======
-                <!-- Basic form layout section start -->
-                <section id="basic-form-layouts">
-                    <div class="row match-height">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> 
-                                        {{trans('admin.edit')}}{{trans('admin.Appointments')}}  </h4>
-                                    <a class="heading-elements-toggle"><i
-                                            class="la la-ellipsis-v font-medium-3"></i></a>
-                                    <div class="heading-elements">
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                         <ul class="list-inline mb-0">
                                             <li>
                                                 <a data-action="collapse">
@@ -82,27 +64,17 @@
                                     <form action="{{Route('appointments.update',$appointment->id)}}"
                                      method="post" enctype="multipart/form-data">
                                      @method('put')
-<<<<<<< HEAD
                                             @csrf         
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-12">
                                                        <div class="form-group">
                                                         <label class="form-label">Day <span class="text-danger">*</span></label>
-=======
-                                            @csrf
-
-                                            <div class="card-body">
-                                                <div class="row px-8">
-                                                    <div class="col form-group">
-                                                        <label>{{trans('admin.day')}}  <span class="text-danger">*</span></label>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                         <input class="form-control" type="text" value="{{old('day', $appointment->day)}}" name="day">
                                                         @error("day" )
                                                             <span class="text-danger">{{$message}}</span>
                                                         @enderror
                                                      </div>
                                                     </div>
-<<<<<<< HEAD
                                                     <div class="col-lg-6 col-md-12">
                                                       <div class="form-group">
                                                          <label>Date <span class="text-danger">*</span></label>
@@ -115,21 +87,6 @@
                                                     <div class="col-lg-6 col-md-12">
                                                        <div class="col form-group">
                                                         <label class="form-label">Time <span class="text-danger">*</span></label>
-=======
-                                                </div>
-                                                <div class="row px-8">
-                                                    <div class="col form-group">
-                                                        <label>{{trans('admin.date')}}  <span class="text-danger">*</span></label>
-                                                        <input class="form-control" type="date" value="{{old('date', $appointment->date)}}" name="date">
-                                                        @error("date" )
-                                                            <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div> 
-                                                <div class="row px-8">
-                                                    <div class="col form-group">
-                                                        <label>{{trans('admin.time')}}  <span class="text-danger">*</span></label>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                         <input class="form-control" type="time" value="{{old('time', $appointment->time)}}" name="time">
                                                         @error("time" )
                                                             <span class="text-danger">{{$message}}</span>

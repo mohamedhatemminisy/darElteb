@@ -17,7 +17,6 @@
                                         {{trans('admin.home')}} 
                                     </a>
                                 </li>
-<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('offers.index')}}">    
                                     {{trans('admin.offers')}} 
@@ -27,19 +26,11 @@
                                     <a>
                                     {{trans('admin.create_offer')}}
                                    </a>
-=======
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> 
-                                    
-                                {{trans('admin.Offers')}} </a>
-                                </li>
-                                <li class="breadcrumb-item active">{{trans('admin.Create_offer')}} 
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                             </ol>
                         </div>
                     </div>
             </div>
-<<<<<<< HEAD
             </div>
         </div>
         <div class="content-body">
@@ -52,19 +43,6 @@
                                      <h3>  {{trans('admin.create_offer')}}</h3>
                                    </div> 
                                     <div class="btn-icons">
-=======
-            <div class="content-body">
-                <!-- Basic form layout section start -->
-                <section id="basic-form-layouts">
-                    <div class="row match-height">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form">{{trans('admin.Create_offer')}} </h4>
-                                    <a class="heading-elements-toggle"><i
-                                            class="la la-ellipsis-v font-medium-3"></i></a>
-                                    <div class="heading-elements">
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                         <ul class="list-inline mb-0">
                                             <li>
                                                 <a data-action="collapse">
@@ -120,7 +98,6 @@
                                                         </div>
                                                     @endforeach
 
-<<<<<<< HEAD
                                                  <div class="row">
                                                   <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
@@ -129,27 +106,14 @@
                                                                 <option value=""></option>
                                                                 <option value="laboratory">Laboratory</option>
                                                                 <option value="individual">Individual</option>
-=======
-                                                    <div class="col form-group">
-                                                        <label>{{trans('admin.type')}}  <span class="text-danger">*</span></label>
-                                                            <select name="type" class="form-control">
-                                                                <option value="laboratory">{{trans('admin.Laboratory')}} </option>
-                                                                <option value="individual">{{trans('admin.Individual')}} </option>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                             </select>
                                                      </div>
                                                    </div>
 
-<<<<<<< HEAD
                                                    <div class="col-lg-6 col-md-12">
                                                     <div  class="form-group">
                                                         <label class="form-label">Tests <span class="text-danger">*</span></label>
                                                         <select class="js-example-placeholder-multiple" name="tests[]" id='tests' multiple>
-=======
-                                                    <div class="col form-group">
-                                                        <label>{{trans('admin.Tests')}} <span class="text-danger">*</span></label>
-                                                        <select class="form-control" name="tests[]" id='tests' multiple>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                             @foreach ($tests as $test)
                                                                 <option value="{{ $test->id }}" {{ old('tests') == $test->id ? 'selected' : '' }}>
                                                                     {{ $test->translate('en')->name }}</option>
@@ -165,20 +129,12 @@
                                                 <div class="row">
                                                    <div class="col-lg-6 col-md-12">
 
-<<<<<<< HEAD
                                                     <div class="form-group">
                                                         <label class="form-label">Offer Category <span class="text-danger">*</span></label>
                                                             <select class="js-example-placeholder-single offer_type" name="target" >
                                                                 <option value=""></option>
                                                                 <option value="gender">gender</option>
                                                                 <option value="age">age</option>
-=======
-                                                    <div class="col form-group">
-                                                        <label>{{trans('admin.Offer_Category')}}  <span class="text-danger">*</span></label>
-                                                            <select name="target" class="form-control offer_type">
-                                                                <option value="gender">{{trans('admin.gender')}}</option>
-                                                                <option value="age">{{trans('admin.age')}}</option>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                             </select>
                                                             @error("target" )
                                                                <span class="text-danger">{{$message}}</span>
@@ -187,7 +143,6 @@
                                                                 
                                                    </div>
 
-<<<<<<< HEAD
                                                     <div class="col-lg-6 col-md-12">
 
                                                      <div class="form-group form-icon">
@@ -221,20 +176,6 @@
                                                                  <option value=""></option>
                                                                 <option value="male">male</option>
                                                                 <option value="female">female</option>
-=======
-                                                    <div class="col form-group d-none" id="age">
-                                                        <label>{{trans('admin.age')}}<span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" name="age">
-                                                    </div>
-                                                    @error("age" )
-                                                        <span class="text-danger">{{$message}}</span>
-                                                    @enderror
-                                                    <div class="col form-group d-none" id="gender">
-                                                        <label>{{trans('admin.gender')}}<span class="text-danger">*</span></label>
-                                                        <select name="gender" class="form-control">
-                                                                <option value="male">{{trans('admin.male')}}</option>
-                                                                <option value="female">{{trans('admin.female')}}</option>
->>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                             </select>
                                                             @error("gender" )
                                                         <span class="text-danger">{{$message}}</span>
