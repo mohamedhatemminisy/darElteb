@@ -42,6 +42,11 @@ html body .img-resize{
   border-radius:0.87rem;
 
 }
+html body .lang-ar{
+
+  display: none;
+
+}
 html body .app-content,
 html body .content{
 

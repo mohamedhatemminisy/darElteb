@@ -46,6 +46,12 @@ html {
 
   }
 
+  html body .lang-en{
+
+    display: none;
+  
+  }
+
   html body .app-content,
   html body .content{
   

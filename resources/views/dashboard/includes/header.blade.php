@@ -47,6 +47,14 @@
                                 <i class="ft-power" aria-hidden="true"></i>
                                 {{trans('admin.logout')}} 
                             </a>
+                            <a class="dropdown-item lang-en">
+                               <i class="las la-globe la-lg" aria-hidden="true"></i>
+                               @lang('admin.en')                                       
+                            </a>
+                            <a class="dropdown-item lang-ar">
+                             <i class="las la-globe la-lg" aria-hidden="true"></i>
+                              @lang('admin.ar')                                      
+                            </a>
                         </div>
                     </li>
                 </ul>
