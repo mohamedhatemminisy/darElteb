@@ -17,10 +17,14 @@
                                         {{trans('admin.home')}} 
                                     </a>
                                 </li>
+<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('offers.index')}}">    
                                     {{trans('admin.offers')}} 
                                     </a>
+=======
+                                <li class="breadcrumb-item"><a href="{{route('offers.index')}}">  {{trans('admin.Offers')}}</a>
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <a> {{trans('admin.edit')}} {{trans('admin.offer')}}  </a>
@@ -93,6 +97,7 @@
                                                                
                                                         </div>
                                                     @endforeach
+<<<<<<< HEAD
                                                 <div class="row">
                                                  <div class="col-lg-6 col-md-12">  
                                                    <div class="form-group">
@@ -108,6 +113,20 @@
                                                     <div class="form-group">
                                                         <label class="form-label">Tests<span class="text-danger">*</span></label>
                                                         <select class="js-example-placeholder-multiple" name="tests[]" id='tests' multiple>
+=======
+                                                </div>
+                                                <div class="col form-group">
+                                                        <label>Type <span class="text-danger">*</span></label>
+                                                            <select name="type" class="form-control">
+                                                                <option value="laboratory"  @if($offer->type == 'laboratory') selected @endif>{{trans('admin.Laboratory')}}</option>
+                                                                <option value="individual" @if($offer->type == 'individual') selected @endif>{{trans('admin.Individual')}}</option>
+                                                            </select>
+                                                    </div>
+
+                                                    <div class="col form-group">
+                                                        <label>{{trans('admin.Tests')}}<span class="text-danger">*</span></label>
+                                                        <select class="form-control" name="tests[]" id='tests' multiple>
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                             @foreach ($tests as $item)
                                                                 <option value="{{ $item->id }}" @if(in_array($item->id, json_decode($offer->tests))) selected @endif>
                                                                     {{ $item->translate('en')->name }}</option>
@@ -117,12 +136,19 @@
                                                   </div>
                                                 </div>
 
+<<<<<<< HEAD
                                                 <div class="row">
                                                   <div class="col-lg-6 col-md-12"> 
                                                     <div class="form-group">
                                                         <label class="form-label">Offer Category <span class="text-danger">*</span></label>
                                                             <select class="js-example-placeholder-single offer_type" name="target" >
                                                                 <option value=""></option>
+=======
+
+                                                    <div class="col form-group">
+                                                        <label>{{trans('admin.Offer_Category')}} <span class="text-danger">*</span></label>
+                                                            <select name="target" class="form-control offer_type">
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                                 <option value="gender"  @if($offer->target == 'gender') selected @endif>gender</option>
                                                                 <option value="age" @if($offer->target == 'age') selected @endif>age</option>
                                                             </select>
@@ -130,6 +156,7 @@
                                                                <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                     </div>
+<<<<<<< HEAD
                                                    </div>
                                                    <div class="col-lg-6 col-md-12"> 
                                                    
@@ -144,6 +171,15 @@
                                                     </div>
                                                     <div class="form-group">                                               
                                                        <img src="{{asset($offer->image)}}" class="img-responsive lazyload img-resize"  data-src="{{asset($offer->image)}}" alt="">
+=======
+                                                    @error("target" )
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
+
+                                                    <div class="col form-group d-none" id="age">
+                                                        <label>{{trans('admin.age')}}<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" name="age" value="{{$offer->value}}">
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                     </div>
                                                   </div>
                                                   </div>
@@ -156,6 +192,7 @@
                                                         <input type="text" class="form-control" name="age" value="{{$offer->value}}">
                                                         @error("age" )
                                                         <span class="text-danger">{{$message}}</span>
+<<<<<<< HEAD
                                                          @enderror   
                                                     </div>
                                                 
@@ -170,6 +207,17 @@
                                                         <option value="female"  @if($offer->value == 'female') selected @endif>female</option>
                                                     </select>
                                                     @error("gender" )
+=======
+                                                    @enderror
+                                                    <div class="col form-group d-none" id="gender">
+                                                        <label>{{trans('admin.gender')}}<span class="text-danger">*</span></label>
+                                                        <select name="gender" class="form-control">
+                                                                <option value="male"  @if($offer->value == 'male') selected @endif>{{trans('admin.male')}}</option>
+                                                                <option value="female"  @if($offer->value == 'female') selected @endif>{{trans('admin.female')}}</option>
+                                                            </select>
+                                                        </div>
+                                                   @error("gender" )
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                   </div>

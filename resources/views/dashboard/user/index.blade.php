@@ -14,10 +14,14 @@
                     <div class="breadcrumbs-top">
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
+<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">
                                      {{trans('admin.home')}} 
                                     </a>
+=======
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin.home')</a>
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <a>{{trans('admin.users')}} </a>
@@ -93,6 +97,7 @@
                                                             <div class="btn-group position-relative info">
                                                                 <span class="wrap-text"><i class="las la-map-marker la-lg" aria-hidden="true"></i></span>     
                                                                         <a href="{{route('user.addresses',$user->id)}}"
+<<<<<<< HEAD
                                                                         class="btn btn-sm btn-icon btn-info" 
                                                                         data-toggle="tooltip" data-placement="top" data-trigger="hover" data-html="true" title="<span class='info-tooltip'> @lang('admin.addresses')</span>">
                                                                         <i class="las la-map-marker la-lg" aria-hidden="true"></i>
@@ -108,6 +113,16 @@
                                                             </div>        
                                                           </div>
                                                     </td>
+=======
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="{{trans('admin.Address')}}"><i class="fas fa-map-marker"></i></a>
+
+                                                                        <a href="{{route('user.reservations',$user->id)}}"
+                                                                   class="btn btn-sm btn-clean
+                                                                        btn-icon mr-2" title="{{trans('admin.Reservations')}}"><i class="fas fa-history"></i></a>
+                                                            </div>
+                                                        </td>
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                         
                                                     </tr>
                                                 @endforeach

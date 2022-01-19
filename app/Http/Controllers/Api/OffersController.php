@@ -23,18 +23,18 @@ class OffersController extends Controller
                 $arr['name'] = $offer->translate('en')->name;
                 $arr['description'] = strip_tags($offer->translate('en')->description);
                 $arr['type'] = $offer->type;
-                $arr['image'] = url('/').'/'.$offer->image;
+                $arr['image'] = asset($offer->image);
                 $data[] = $arr;
             }
             return response([
                 'status' =>true ,
-                'message' =>trans("User offers")  ,
+                'message' =>trans("api.offers")  ,
                 'data' =>$data
             ]);
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans("User has no offers")  ,
+                'message' =>trans("api.no_offers")  ,
                 'data' =>[]
             ]);
         }
@@ -42,11 +42,12 @@ class OffersController extends Controller
 
     public function OfferDetails(Request $request){
         $offer = Offer::find($request->offer_id);
+        if($offer){
         $u['id'] = $offer->id;
         $u['name'] = $offer->translate('en')->name;
         $u['description'] = strip_tags($offer->translate('en')->description);
         $u['type'] = $offer->type;
-        $u['image'] = url('/').'/'.$offer->image;
+        $u['image'] = asset($offer->image);
         $tests = json_decode($offer->tests);
         $tests = Test::whereIn('id',$tests)->get();
 
@@ -57,7 +58,7 @@ class OffersController extends Controller
             $arr['type']=  strip_tags($test->translate('en')->type);
             $arr['duration']=  $test->duration;
             $arr['price']=  $test->price;
-            $arr['image']=  url('/').'/'.$test->image;
+            $arr['image']=  asset($test->image);
             $u['tests'][]= $arr;
         }
 
@@ -68,5 +69,13 @@ class OffersController extends Controller
             'data' =>$u
         ]);
 
+    }else{
+        return response([
+            'status' =>false ,
+            'message' =>trans("api.offer_id_false")  ,
+            'data' =>[]
+        ]);
+
+    }
     }
 }

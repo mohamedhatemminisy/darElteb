@@ -18,6 +18,7 @@
                                     @lang('admin.home')
                                    </a>
                                 </li>
+<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('reservations')}}"> 
                                     @lang('admin.reservations')
@@ -27,6 +28,13 @@
                                     <a>
                                     @lang('admin.create_result')
                                     </a>
+=======
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> 
+                                    
+                                {{trans('admin.tests')}} </a>
+                                </li>
+                                <li class="breadcrumb-item active">{{trans('admin.create_result')}}
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                             </ol>
                         </div>
@@ -35,6 +43,7 @@
                 </div>
             </div>
             <div class="content-body">
+<<<<<<< HEAD
                 <div class="row">
                         <div class="col-12">
                             <div class="card pull-up">
@@ -43,6 +52,18 @@
                                     <h3> Create Result </h3>
                                   </div>
                                   <div class="btn-icons">
+=======
+                <!-- Basic form layout section start -->
+                <section id="basic-form-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title" id="basic-layout-form"> {{trans('admin.create_result')}} </h4>
+                                    <a class="heading-elements-toggle"><i
+                                            class="la la-ellipsis-v font-medium-3"></i></a>
+                                    <div class="heading-elements">
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                         <ul class="list-inline mb-0">
                                             <li>
                                                 <a data-action="collapse">
@@ -71,18 +92,31 @@
                                                   <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
                                                         <input type="hidden" name="visit_id" value="{{$id}}">
+<<<<<<< HEAD
                                                         <label class="form-label">Time <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="type" value="{{ old('time') }}" name="time" placeholder="@lang('admin.time')"  onfocusin="(this.type='time')"  onfocusout="(this.type='text')">
+=======
+                                                        <label>{{trans('admin.time')}} <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="time" value="{{ old('time') }}" name="time">
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                         @error("time" )
                                                             <span class="text-danger">{{$message}}</span>
                                                         @enderror
                                                      </div>
+<<<<<<< HEAD
                                                    </div>
 
                                                   <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
                                                         <label class="form-label">Date <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="text" value="{{ old('date') }}" name="date" placeholder="@lang('admin.date')" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
+=======
+                                                </div>
+                                                <div class="row px-8">
+                                                    <div class="col form-group">
+                                                        <label>{{trans('admin.date')}} <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="date" value="{{ old('date') }}" name="date">
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                         @error("date" )
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -97,6 +131,13 @@
                                                         <label class="custom-file-label  form-control" for="customfile">@lang('admin.upload_image_file')</label>
                                                     </div>
 
+<<<<<<< HEAD
+=======
+                                                <div class="col form-group">
+                                                    <label>{{trans('admin.file')}} <span class="text-danger">*</span></label>
+                                                    <input type="file" name="file" 
+                                                    placeholder="File" class="form-control">
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                                     @error("file" )
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror

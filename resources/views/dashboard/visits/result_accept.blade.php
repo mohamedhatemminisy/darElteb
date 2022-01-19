@@ -2,6 +2,7 @@
 @extends('layouts.admin')
 @section('content')
 
+<<<<<<< HEAD
    
             <div class="content-header px-1 mb-2">
                 <div class="row">
@@ -11,11 +12,21 @@
                     </div>  
                     <div class="breadcrumbs-top">
                         <div class="breadcrumb-wrapper">
+=======
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-header row">
+                <div class="content-header-left col-md-6 col-12 mb-2">
+                    <h3 class="content-header-title">{{trans('admin.Reservations')}} </h3>
+                    <div class="row breadcrumbs-top">
+                        <div class="breadcrumb-wrapper col-12">
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">
                                        @lang('admin.home')</a>
                                 </li>
+<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('reservations')}}"> 
                                     @lang('admin.reservations')
@@ -25,6 +36,9 @@
                                    <a> 
                                      @lang('admin.test_acceptance')
                                    </a>
+=======
+                                <li class="breadcrumb-item active">{{trans('admin.Reservations')}}
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                             </ol>
                         </div>
@@ -56,6 +70,7 @@
                                         </ul>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                       <div class="card-details">
@@ -65,6 +80,19 @@
                                           <div class="details-alert">
                                             <p class="alert alert-secondary">{{ $visit->accept  }}</p>
                                          </div>  
+=======
+                                <div class="card-body">
+                                    <div class="tab-content">
+             
+                                    <div class="col form-group">
+ 
+                                        <label>{{trans('admin.message')}}</label>
+                                        <p class="alert alert-info" 
+                                        style="background-color:rgb(26,60,119)">{{ $visit->accept  }}</p>
+                                
+                                    </div>
+
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                     </div>
                                 </div>
                                </div>    

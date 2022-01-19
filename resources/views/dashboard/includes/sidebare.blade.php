@@ -61,6 +61,7 @@
             </a>
         </li>
 
+<<<<<<< HEAD
         <li class=" nav-item">
             <a>
               <span class="menu-icon"> 
@@ -77,6 +78,16 @@
                
                      <i class="las la-plus la-lg" aria-hidden="true"></i>
                   
+=======
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">{{trans('admin.Appointments')}}</span></a>
+            <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('appointments.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+            {{trans('admin.Create_appointment')}} </a>
+                </li>
+                <li><a class="menu-item" href="{{route('appointments.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                {{trans('admin.Show_appointments')}} </a>
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
 
                      Create appointment
             
@@ -97,6 +108,7 @@
             </ul>
         </li>
 
+<<<<<<< HEAD
         <li class=" nav-item">
            <a>
              <span class="menu-icon">   
@@ -106,6 +118,19 @@
                 {{trans('admin.tests')}}
              </span>
             </a>
+=======
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">{{trans('admin.tests')}}</span></a>
+            <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('tests.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        {{trans('admin.create_test')}}</a>
+                </li>
+            <!-- <li><a class="menu-item" href="{{route('upload_csv')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        {{trans('admin.upload_csv')}}</a>
+                </li> -->
+                <li><a class="menu-item" href="{{route('tests.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                        {{trans('admin.show_tests')}}</a>
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
 
             <ul class="menu-content">
             <li>
@@ -138,6 +163,7 @@
             </ul>
         </li>
 
+<<<<<<< HEAD
         <li class=" nav-item">
          <a>
             <span class="menu-icon"> 
@@ -165,10 +191,23 @@
                         Show offers
                       
                     </a>
+=======
+
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">{{trans('admin.Offers')}}</span></a>
+            <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('offers.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+            {{trans('admin.Create_offer')}} </a>
+                </li>
+                <li><a class="menu-item" href="{{route('offers.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                {{trans('admin.Show_offers')}}  </a>
+
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                 </li>
             </ul>
         </li>
 
+<<<<<<< HEAD
         <li class=" nav-item">
           <a>
           <span class="menu-icon"> 
@@ -188,6 +227,14 @@
                     Show Reservations
                
                    </a>
+=======
+        <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title"
+         data-i18n="nav.horz_nav.main">{{trans('admin.Reservations')}}</span></a>
+            <ul class="menu-content">
+                <li><a class="menu-item" href="{{route('reservations')}}"
+                 data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                 {{trans('admin.Reservations')}}</a>
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                 </li>
             </ul>
         </li>

@@ -17,6 +17,7 @@
                                         {{trans('admin.home')}} 
                                     </a>
                                 </li>
+<<<<<<< HEAD
                                 <li class="breadcrumb-item">
                                     <a href="{{route('countries.index')}}"> 
                                      {{trans('admin.countries')}} 
@@ -26,6 +27,10 @@
                                     <a>
                                         {{trans('admin.create_country')}}
                                     </a>
+=======
+                                
+                                <li class="breadcrumb-item active">{{trans('admin.create_country')}}
+>>>>>>> 864147eadec1b5efea6cb6ea997649b67aaa84c2
                                 </li>
                             </ol>
                         </div>
