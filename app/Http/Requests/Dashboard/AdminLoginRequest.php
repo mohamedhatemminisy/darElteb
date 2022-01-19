@@ -28,4 +28,11 @@ class AdminLoginRequest extends FormRequest
             'password' => 'required'
         ];
     }
+
+    public function messages(){
+        return [
+            'email.required'      => trans('admin.error_message.email_required'),
+            'password.required'  => trans('admin.error_message.password_required'),
+        ];
+    }
 }

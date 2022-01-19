@@ -32,7 +32,7 @@ class TestController extends Controller
                 $data[] = $arr;
             }
             $page = $request->get('page', 1);
-            $perPage = 10;
+            $perPage = 20;
             $offset = ($page * $perPage) - $perPage;
     
             $count = count($arr);
@@ -40,7 +40,7 @@ class TestController extends Controller
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans('there is no tests')  ,
+                'message' =>trans('api.no_tests')  ,
                 'data' =>[]
             ]);
         }
@@ -61,13 +61,13 @@ class TestController extends Controller
             }
             return response([
                 'status' =>true ,
-                'message' =>trans('appointments')  ,
+                'message' =>trans('api.appointments')  ,
                 'data' =>$data
             ]);
         }else{
             return response([
                 'status' =>false ,
-                'message' =>trans('there is no appointments')  ,
+                'message' =>trans('api.no_appointments')  ,
                 'data' =>[]
             ]);
         }

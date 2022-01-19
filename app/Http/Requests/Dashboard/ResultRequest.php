@@ -29,4 +29,13 @@ class ResultRequest extends FormRequest
             'time' => 'required|date_format:H:i',
         ];
     }
+
+    public function messages()
+    {
+        return[
+            'file.required' => trans('admin.error_message.file_required'),
+            'date.required' => trans('admin.error_message.date_required'),
+            'time.required' => trans('admin.error_message.time_required'),
+        ];
+    }
 }

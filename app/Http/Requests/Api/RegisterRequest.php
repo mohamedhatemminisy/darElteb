@@ -52,9 +52,7 @@ class RegisterRequest extends FormRequest
             'birthrate.required'    => trans('api.birthrate_required'),
             'age.required'          => trans('api.age_required'),
             'gender.required'       => trans('api.gender_required'),
-            'ID_image.required'     => trans('api.ID_required'),
-
-            
+            'ID_image.required'     => trans('api.ID_required'),        
         ];
     }
     
