@@ -1,9 +1,9 @@
 <nav
     class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow navbar-semi-light  navbar-shadow">
     <div class="navbar-wrapper">
-        <div class="navbar-header d-none">
-            <ul class="nav navbar-nav flex-row align-items-center h-100">
-                <li class="nav-item mobile-menu d-md-none mr-auto">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row h-100 align-items-center justify-content-between">
+                <li class="nav-item mobile-menu d-md-none">
                     <a class="nav-link nav-menu-main menu-toggle  hidden-xs">
                         <div class="menu-toggle-bar"></div>
                     </a> 
@@ -15,7 +15,7 @@
                 </li>
                 <li class="nav-item d-md-none">
                     <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile">
-                        <i class="la la-ellipsis-v" aria-hidden="true"></i></a>
+                     <i class="la la-ellipsis-v" aria-hidden="true"></i></a>
                 </li>
             </ul>
         </div>
@@ -43,10 +43,6 @@
                                 <i class="ft-user" aria-hidden="true"></i> 
                                 {{trans('admin.edit_profile')}}
                             </a>
-                            <a class="dropdown-item" href="{{route('admin.logout')}}">
-                                <i class="ft-power" aria-hidden="true"></i>
-                                {{trans('admin.logout')}} 
-                            </a>
                             <a class="dropdown-item lang-en">
                                <i class="las la-globe la-lg" aria-hidden="true"></i>
                                @lang('admin.en')                                       
@@ -55,6 +51,11 @@
                              <i class="las la-globe la-lg" aria-hidden="true"></i>
                               @lang('admin.ar')                                      
                             </a>
+                            <a class="dropdown-item" href="{{route('admin.logout')}}">
+                                <i class="ft-power" aria-hidden="true"></i>
+                                {{trans('admin.logout')}} 
+                            </a>
+
                         </div>
                     </li>
                 </ul>

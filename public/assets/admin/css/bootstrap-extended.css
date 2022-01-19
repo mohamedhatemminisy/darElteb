@@ -921,36 +921,6 @@ select.form-control {
 .dropdown.dropdown-demo {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem; }
-
-.dropdown .dropdown-menu {
-  
-  border : 1px solid #E4E5EC;
-  border-radius : 0.5rem;
-  -webkit-transform-origin : top;
-     -moz-transform-origin : top;
-      -ms-transform-origin : top;
-       -o-transform-origin : top;
-          transform-origin : top;
-  -webkit-animation-fill-mode : forwards;
-     -moz-animation-fill-mode : forwards;
-       -o-animation-fill-mode : forwards;
-          animation-fill-mode : forwards;
-  -webkit-transform : scale(1, 0);
-     -moz-transform : scale(1, 0);
-      -ms-transform : scale(1, 0);
-       -o-transform : scale(1, 0);
-          transform : scale(1, 0);
-  -webkit-transition : all 0.2s linear;
-     -moz-transition : all 0.2s linear;
-       -o-transition : all 0.2s linear;
-          transition : all 0.2s linear;
-  margin : -0.1rem 0 0;
-  padding: 0;
-  -webkit-box-shadow : 0 5px 75px 2px rgba(64, 70, 74, 0.2);
-  box-shadow : 0 5px 75px 2px rgba(64, 70, 74, 0.2);
-  min-width : 11rem;
-
-  }
   .dropdown .dropdown-menu .dropdown-header {
     padding: 10px 20px;
     margin-top: 10px;
@@ -1278,6 +1248,13 @@ select.form-control {
   } */
   .header-navbar.navbar-without-dd-arrow .nav-link.dropdown-toggle::after {
     display: none; }
+
+
+    .header-navbar .navbar-header{
+
+      display: none;
+   }
+   
   .header-navbar.navbar-brand-center .navbar-header {
     width: 192px;
     position: absolute;
