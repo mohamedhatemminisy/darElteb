@@ -14,7 +14,7 @@
             <div class="content-body">
                 <div  class="row" id="crypto-stats-3">
                     
-                    <div class="col-xl-4 col-12">
+                    <div class="col-lg-4 col-md-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body p-1">
@@ -24,7 +24,7 @@
                                              </div>
 
                                         <div class="title">
-                                            <h4>Tests count </h4>
+                                            <h4> {{trans('admin.tests_count')}} </h4>
                                          </div>
                                        
                                     </div>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-12">
+                    <div class="col-lg-4 col-md-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body p-1">
@@ -50,7 +50,7 @@
                                                <img  src="{{asset('assets/admin/images/icons/offers-icon.png')}}" class="brand-logo img-responsive lazyload" data-src="{{asset('assets/admin/images/icons/offers-icon.png')}}" alt="Logo">
                                         </div>                                     
                                          <div class="title">
-                                            <h4>Offers count</h4>
+                                            <h4>{{trans('admin.offers_count')}}</h4>
                                          </div>
                                       
                                     </div>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-12">
+                    <div class="col-lg-4 col-md-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body p-1">
@@ -76,7 +76,7 @@
                                                <img  src="{{asset('assets/admin/images/icons/visits-icon22.png')}}" class="brand-logo img-responsive lazyload" data-src="{{asset('assets/admin/images/icons/visits-icon.png')}}" alt="Logo">
                                         </div>        
                                         <div class="title">
-                                            <h4>visits Count </h4>
+                                            <h4>{{trans('admin.reservations_count')}}</h4>
                                          </div>
                                         
                                     </div>
@@ -98,14 +98,14 @@
                 <div class="row">
                    <div class="col-12">
                      <div class="card pull-up">
-                        <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="card-header card-btns d-flex justify-content-between align-items-center">
                             <div class="card-title">
-                              <h3>Last Offers</h3>
+                              <h3>{{trans('admin.last_offers')}}</h3>
                             </div>
                             <div class="btn-group position-relative gradient">
-                               <span class="wrap-text">Show All Offers</span>
+                               <span class="wrap-text">{{trans('admin.all_offers')}}</span>
                                <a href="{{route('offers.index')}}" class="btn btn-gradient">
-                                   Show All Offers
+                               {{trans('admin.all_offers')}}
                                 </a>
                            </div> 
                          </div>
@@ -117,9 +117,9 @@
                                    <tr>
                                       <th scope="col">#</th>
                                       <th scope="col">{{trans('admin.name')}}</th>
-                                      <th scope="col">Type </th>
-                                      <th scope="col">Target</th>
-                                      <th scope="col">Value</th>
+                                      <th scope="col">{{trans('admin.type')}}</th>
+                                      <th scope="col">{{trans('admin.target')}}</th>
+                                      <th scope="col">{{trans('admin.value')}}</th>
                                       <th scope="col">{{trans('admin.action')}}</th>
                                    </tr>
                                 </thead>
@@ -175,13 +175,13 @@
                            </div>
                         </div>
 
-                        <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="card-header card-btns d-flex justify-content-between align-items-center">
                            <div class="card-title">
-                             <h3>Last Tests </h3>
+                             <h3>{{trans('admin.last_tests')}}</h3>
                            </div>
                            <div class="btn-group position-relative gradient">
-                               <span class="wrap-text">Show All Tests</span>
-                               <a href="{{route('tests.index')}}" class="btn btn-gradient">Show All Tests</a>
+                               <span class="wrap-text">{{trans('admin.all_tests')}}</span>
+                               <a href="{{route('tests.index')}}" class="btn btn-gradient">{{trans('admin.all_tests')}}</a>
                            </div>
                         </div>
 
@@ -241,13 +241,13 @@
                            </div>
                         </div>
 
-                        <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="card-header card-btns d-flex justify-content-between align-items-center">
                            <div class="card-title">
-                              <h3>Last Reservations </h3>
+                              <h3>{{trans('admin.last_reservations')}}</h3>
                            </div>
                            <div class="btn-group position-relative gradient">
-                               <span class="wrap-text">Show All Reservations</span>
-                               <a href="{{route('reservations')}}" class="btn btn-gradient">Show All Reservations</a>
+                               <span class="wrap-text">{{trans('admin.all_reservations')}}</span>
+                               <a href="{{route('reservations')}}" class="btn btn-gradient">{{trans('admin.all_reservations')}}</a>
                             </div>
                           </div>
   
@@ -258,11 +258,11 @@
                                 <thead>
                                    <tr>
                                      <th scope="col">#</th>
-                                     <th scope="col">Name</th>
-                                     <th scope="col">Phone</th>
-                                     <th scope="col">Type</th>
-                                     <th scope="col">location</th>
-                                     <th scope="col">Rate</th>
+                                     <th scope="col">{{trans('admin.name')}}</th>
+                                     <th scope="col">{{trans('admin.phone')}}</th>
+                                     <th scope="col">{{trans('admin.type')}}</th>
+                                     <th scope="col">{{trans('admin.location')}}</th>
+                                     <th scope="col">{{trans('admin.rate')}}</th>
                                      <th scope="col">{{trans('admin.action')}}</th>
                                    </tr>
                                 </thead>

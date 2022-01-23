@@ -15,7 +15,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">
+                                <li class="breadcrumb-item">
                                     <a href="{{route('tests.index')}}">{{trans('admin.tests')}}</a>
                                 </li>
                                 <li class="breadcrumb-item active">

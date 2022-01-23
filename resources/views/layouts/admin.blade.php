@@ -81,8 +81,8 @@
 
 <!-- begin sidebar -->
 @include('dashboard.includes.sidebare')
-
-<!-- end sidebar -->
+<!--// end sidebar -->
+<!-- begin content -->
 <div class="app-content">
    <div class="content"> 
    <!-- begin header -->
@@ -91,17 +91,27 @@
    <div class="content-wrapper">     
    @yield('content')
   </div>
-  <!-- begin footer html -->
+   <!-- begin footer html -->
   @include('dashboard.includes.footer')
   <!--// end footer -->
   </div>  
 </div>
+<!--// end content -->
+
+<!--scroll-to-top-->
+  <div class="top-up">
+      <a class="auto-scroll-to-top">
+         <i class="las la-chevron-up la-lg" aria-hidden="true"></i>
+      </a>
+  </div>
+<!--//scroll-to-top-->
+
 
 </div>
 
 
 <!-- BEGIN PUSHER JS-->
-<script src="//js.pusher.com/3.1/pusher.min.js"></script>
+<!-- <script src="//js.pusher.com/3.1/pusher.min.js"></script> -->
 <!--// END PUSHER JS-->
 
 <!-- BEGIN VENDOR JS-->
@@ -156,7 +166,7 @@
 
 
 
-<script>
+<!-- <script>
     var previousCounter = $('.notification-counter').text(); //8
     var notificationsCount = parseInt(previousCounter);
     // Enable pusher logging - don't include this in production
@@ -173,7 +183,7 @@
     });
 
 
-   </script>
+   </script> -->
  
 
   </body>

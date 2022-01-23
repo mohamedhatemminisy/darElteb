@@ -45,6 +45,42 @@
   
   });
 
+    // active links switch
+       
+      let url = window.location.href,
+      urlprotocol=window.location.protocol,
+      urlpath1 = window.location.pathname.split( '/' )[1],
+      urlpath2 = window.location.pathname.split( '/' )[2],
+      urlpath3 = window.location.pathname.split( '/' )[3],
+      urlpath=urlprotocol+"//"+window.location.host +"/"+urlpath1+"/"+urlpath2,
+      urlsubpath1 = urlpath + "/"+urlpath3;
+    $(".main-menu-content a").each(function () {
+    
+      let linkurl=$(this).attr("href");
+     
+      if(url == linkurl || urlsubpath1 == linkurl){
+
+        $(this).parents('li').addClass('active');
+     
+    }
+    else if( urlpath3 == "reservation"){
+  
+      let  urlpathchange=urlpath3.replace('reservation','reservations'),
+      urlsubpath2 = urlpath + "/"+urlpathchange;
+      if(urlsubpath2 == linkurl){
+        $(this).parents('li').addClass('active');
+
+      }
+    }
+
+   });
+  
+    if($(".menu-content").children("li:first-child").hasClass("active")){
+
+      $(".menu-content").children("li").next().removeClass("active");
+    }
+
+
   // card content collapse
   
   $('.card-content').on('hide.bs.collapse', function () {

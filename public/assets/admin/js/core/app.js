@@ -212,12 +212,13 @@
             }
         });
     });
-
+    
     $(document).on('click', '.menu-toggle, .modern-nav-toggle', function(e) {
         e.preventDefault();
 
         // Toggle menu
         $.app.menu.toggle();
+        
 
         setTimeout(function(){
             $(window).trigger( "resize" );
@@ -238,7 +239,6 @@
 
         return false;
     });
-
     /*$('.modern-nav-toggle').on('click',function(){
         var $this = $(this),
         icon = $this.find('.toggle-icon').attr('data-ticon');

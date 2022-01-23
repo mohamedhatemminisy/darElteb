@@ -204,18 +204,13 @@ body.vertical-layout.vertical-menu.menu-collapsed .main-menu {
     transition : all 0.3s ease-in-out;
 
   }
-  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover{
-
-    font-weight: 600;
-    color:#1169B0;
-
-  }
+ 
   body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > span.menu-title{
 
     background-color: #F4F5FA;
     border-color: #F4F5FA;
-    margin-top: 1rem;
-  
+    border-bottom-left-radius:0;
+   
   }
   body.vertical-layout.vertical-menu.menu-collapsed .main-menu.menu-light .navigation > li > a:before{
 
@@ -246,17 +241,32 @@ body.vertical-layout.vertical-menu.menu-collapsed .main-menu {
         display:flex;
         align-items: center;
         padding:1rem;
+
     }
-   
-      body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover,
-      body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li:hover > a,
-      body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.hover > a,
-      body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a.hover,
-      body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a:hover{
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > a.menu-title.active,
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover,
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.active > a{
+  
+      font-weight: 600;
+      color:#1169B0 !important;
+  
+    }
+    
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.active > a i{
+  
+       color:#000 !important;
+      
+    }
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover,
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li:hover > a,
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.hover > a,
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a.hover,
+    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a:hover{
        
         padding-inline-start:1.5rem; 
               
-      }
+    }
+   
 
       
       body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.open > a:not(.mm-next):after {
@@ -269,6 +279,7 @@ body.vertical-layout.vertical-menu.menu-collapsed .main-menu {
 
     }
 
+    
       body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.has-sub > a:not(.mm-next):after {
        
         content: "\f112";
@@ -367,7 +378,7 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
   
   text-align: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0.7rem;
 
 
  }
@@ -505,20 +516,26 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
            -o-transition: 200ms ease all;
               transition: 200ms ease all; }
   .vertical-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after, .vertical-overlay-menu.menu-hide .main-menu .navigation li.has-sub > a:not(.mm-next):after {
-    content: "\f112";
-    font-family: 'LineAwesome';
-    font-size: 1rem;
-    display: inline-block;
-    position: absolute;
-    left: 20px;
-    top: 14px;
+    content: "\f104";
+    font-family: "Line Awesome Free";
+    font-weight: 900;
+    font-size:1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-inline-start: auto;
+    margin-inline-end:1rem;
+    color:#6B6C70;
     -webkit-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-    -webkit-transition: -webkit-transform 0.2s ease-in-out;
-            transition: -webkit-transform 0.2s ease-in-out; }
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+     transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    -moz-transition: -webkit-transform 0.3s ease-in-out;
+    -ms-transition: -webkit-transform 0.3s ease-in-out;
+    -o-transition: -webkit-transform 0.3s ease-in-out;
+     transition: -webkit-transform 0.3s ease-in-out;  }
   .vertical-overlay-menu .main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after, .vertical-overlay-menu.menu-hide .main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after {
     top: 8px; }
   .vertical-overlay-menu .main-menu .navigation li.open > a:not(.mm-next):after, .vertical-overlay-menu.menu-hide .main-menu .navigation li.open > a:not(.mm-next):after {

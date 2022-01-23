@@ -67,7 +67,9 @@
                 <i class="las la-calendar la-lg" aria-hidden="true"></i>
               </span> 
               <span class="menu-title" data-i18n="nav.horz_nav.main">
-                  Appointments
+                  
+                  {{trans('admin.appointments')}}
+                  
               </span>
             </a>
 
@@ -78,9 +80,8 @@
                      <i class="las la-plus la-lg" aria-hidden="true"></i>
                   
 
-                     Create appointment
-            
-            
+                     {{trans('admin.create_appointment')}}
+
                   </a>
               </li>
               <li>
@@ -89,7 +90,7 @@
                     
                      <i class="las la-eye la-lg" aria-hidden="true"></i>
                    
-                       Show appointments
+                       {{trans('admin.Show_appointments')}}
                     
                   </a>
 
@@ -144,7 +145,7 @@
                 <i class="las la-capsules la-lg" aria-hidden="true"></i>
             </span>
             <span class="menu-title" data-i18n="nav.horz_nav.main">
-                Offers
+            {{trans('admin.offers')}}
             </span>
           </a>
             <ul class="menu-content">
@@ -153,16 +154,17 @@
                    
                        <i  class="las la-plus la-lg" aria-hidden="true"></i>
                         
-                       Create offer
-                    
+                       {{trans('admin.create_offer')}}
+
+                                          
                     </a>
                 </li>
                 <li>
                     <a class="menu-item" href="{{route('offers.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
                     
                        <i  class="las la-eye la-lg" aria-hidden="true"></i>
-                   
-                        Show offers
+
+                       {{trans('admin.Show_offers')}}
                       
                     </a>
                 </li>
@@ -175,7 +177,9 @@
             <i class="las la-stethoscope la-lg" aria-hidden="true"></i>
           </span>      
           <span class="menu-title" data-i18n="nav.horz_nav.main">
-            Reservations
+         
+            {{trans('admin.reservations')}}
+
           </span>
           </a>
           
@@ -185,7 +189,7 @@
                    
                       <i class="las la-eye la-lg" aria-hidden="true"></i>
                        
-                    Show Reservations
+                      {{trans('admin.show_reservations')}}
                
                    </a>
                 </li>
@@ -198,11 +202,12 @@
             <i class="las la-comments la-lg" aria-hidden="true"></i>
           </span>      
             <span class="menu-title" data-i18n="nav.horz_nav.main">
-              {{trans('admin.contact')}}</span>
+              {{trans('admin.contact')}}
+            </span>
             </a>
         </li>
         
         </ul>
-    </div>
+    </div>    
   </div>
 </aside>

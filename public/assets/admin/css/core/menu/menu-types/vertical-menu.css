@@ -24,6 +24,7 @@ body.vertical-layout.vertical-menu.menu-expanded .navbar.navbar-brand-center .na
   
   width: auto; }
 
+  body.vertical-layout.vertical-menu.menu-collapsed .navbar-container,
   body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-container,
   body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-container{
     margin-left: 0; }
@@ -72,9 +73,6 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu {
     content: "\f105";
     font-family: "Line Awesome Free";
     font-weight: 900;
-    position: absolute;
-    top: 0;
-    right: 0;
     font-size:1rem;
     display: flex;
     align-items: center;
@@ -119,8 +117,8 @@ body.vertical-layout.vertical-menu.menu-collapsed .navbar.navbar-brand-center .n
 body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
   padding: 17px 0px; }
 
-body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-container {
-  margin-left: 60px; }
+
+
 
 /* body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand .brand-text {
   
@@ -172,9 +170,9 @@ body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content{
     body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > span.menu-title, 
     body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title {
     
-      left: -260px;
+      right: -260px;
       width: 260px;
-      text-align: right;
+      text-align: left;
       color:#000;
       border-top-right-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
@@ -184,42 +182,37 @@ body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content{
     }
   
     body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title{
-  
+
       background-color: #fff;
       border-color: #fff;
-      -webkit-box-shadow: -25px 5px 50px 2px rgba(64, 70, 74, 0.2);
-      box-shadow: -25px 5px 50px 2px rgba(64, 70, 74, 0.2);
+      -webkit-box-shadow: 25px 5px 50px 2px rgba(64, 70, 74, 0.2);
+      box-shadow: 25px 5px 50px 2px rgba(64, 70, 74, 0.2);
       -webkit-transition : all 0.3s ease-in-out;
       -moz-transition : all 0.3s ease-in-out;
       -o-transition : all 0.3s ease-in-out;
       transition : all 0.3s ease-in-out;
   
     }
-    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover{
   
-      font-weight: 600;
-      color:#1169B0;
-  
-    }
     body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > span.menu-title{
-  
+
       background-color: #F4F5FA;
       border-color: #F4F5FA;
-      margin-top: 1rem;
+      border-bottom-right-radius:0;
     
     }
     body.vertical-layout.vertical-menu.menu-collapsed .main-menu.menu-light .navigation > li > a:before{
-  
+
       display:none;
   
     }
     body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content {
-  
-      right: 60px;
+
+      left: 60px;
       width: 260px;
-      border-bottom-right-radius: 0.5rem;
-      -webkit-box-shadow: -25px 5px 50px 2px rgba(64, 70, 74, 0.2);
-      box-shadow: -25px 5px 50px 2px rgba(64, 70, 74, 0.2);
+      border-bottom-left-radius: 0.5rem;
+      -webkit-box-shadow: 25px 5px 50px 2px rgba(64, 70, 74, 0.2);
+      box-shadow: 25px 5px 50px 2px rgba(64, 70, 74, 0.2);
       -webkit-transition: visibility .25s,opacity .25s;
       -moz-transition: visibility .25s,opacity .25s;
       -o-transition: visibility .25s,opacity .25s;
@@ -228,29 +221,52 @@ body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content{
     }
   
     body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li {
-      
-        white-space: nowrap;
-      
-    }
-      body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li a {
-         
-          display:flex;
-          align-items: center;
-          padding:1rem;
-      }
-     
-        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover,
-        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li:hover > a,
-        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.hover > a,
-        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a.hover,
-        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a:hover{
-         
-          padding-inline-start:1.5rem; 
-                
-        }
+    
+      white-space: nowrap;
+    
+  }
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li a {
+       
+    display:flex;
+    align-items: center;
+    padding:1rem;
 
+  }
+  
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > a.menu-title.active,
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title.active,
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover,
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.active > a{
 
+    font-weight: 600;
+    color:#1169B0;
 
+  }
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.active > a i{
+
+    color:#000;
+    
+  }
+
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title:hover,
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li:hover > a,
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.hover > a,
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a.hover,
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li > a > a:hover{
+   
+    padding-inline-start:1.5rem; 
+          
+  }
+
+  body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.open > a:not(.mm-next):after {
+       
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+}
       body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.open > a:not(.mm-next):after {
         transform: rotate(90deg); }
       body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li:hover > a, body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.hover > a {
@@ -332,21 +348,21 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
   margin: 0;
   margin-right: 60px; }
 
-  [data-textdirection="rtl"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a {
+  [data-textdirection="ltr"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a {
   
     text-align: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.7rem;
   
   
    }
-   [data-textdirection="rtl"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a i{
+   [data-textdirection="ltr"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a i{
   
     margin-right:0 !important;
   
    }
 
-[data-textdirection="rtl"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li.navigation-header .ft-minus {
+[data-textdirection="ltr"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li.navigation-header .ft-minus {
   padding: 12px 0px; }
 
 @media (min-width: 992px) {
@@ -429,16 +445,31 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
     float: left; }
     .vertical-overlay-menu .main-menu .navigation > li > a > i:before {
       transition: 200ms ease all; }
-  .vertical-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after, .vertical-overlay-menu.menu-hide .main-menu .navigation li.has-sub > a:not(.mm-next):after {
-    content: "\f112";
-    font-family: 'LineAwesome';
-    font-size: 1rem;
-    display: inline-block;
-    position: absolute;
-    right: 20px;
-    top: 14px;
+  .vertical-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after,
+  .vertical-overlay-menu.menu-hide .main-menu .navigation li.has-sub > a:not(.mm-next):after {
+    
+    content: "\f105";
+    font-family: "Line Awesome Free";
+    font-weight: 900;
+    font-size:1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-inline-start: auto;
+    margin-inline-end: 1rem;
+    color:#6B6C70;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    transition: -webkit-transform 0.2s ease-in-out; }
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    -moz-transition: -webkit-transform 0.3s ease-in-out;
+    -ms-transition: -webkit-transform 0.3s ease-in-out;
+    -o-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+
+  }
   .vertical-overlay-menu .main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after, .vertical-overlay-menu.menu-hide .main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after {
     top: 8px; }
   .vertical-overlay-menu .main-menu .navigation li.open > a:not(.mm-next):after, .vertical-overlay-menu.menu-hide .main-menu .navigation li.open > a:not(.mm-next):after {

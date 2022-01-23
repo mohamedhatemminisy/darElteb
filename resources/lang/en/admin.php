@@ -64,7 +64,7 @@ return [
     'show_countries' => 'Show countries',
     'edit'           => 'Edit',
     'uploadresult'           => 'Upload Result',
-    'ar'             => 'Arabic',
+    'ar'             => 'العربية',
     'en'             => 'English',
     'delete'         => 'Delete',
     'added'          => 'Data added successfully',
@@ -99,7 +99,6 @@ return [
         
     ],
 
-
     'tests'          => 'Tests',
     'create_test'    => 'Create Test',
     'show_tests'     => 'Show Tests',
@@ -116,18 +115,18 @@ return [
     'orcavision'     =>  'Orca Vision',
     'rightreserved'  =>  'All Right Reserved',
 
-    'test_count'   => 'Test count',
+    'tests_count'   => 'Test count',
     'offers_count'   => 'Offers count',
     'reservations_count'   => 'Reservations count',
-    'Last_offers'   => 'Last offers',
+    'last_offers'   => 'Last offers',
     'all_offers'   => 'All offers',
     'type'   => 'type',
     'target'   => 'target',
     'value'   => 'value',
     'last_tests'   => 'Last tests',
     'all_tests'   => 'all tests',
-    'Last_Reservations'   => 'Last Reservations',
-    'all_Reservations'   => 'All Reservations',
+    'last_reservations'   => 'Last Reservations',
+    'all_reservations'   => 'All Reservations',
     'location'   => 'Location',
     'rate'   => 'Rate',
     'ConfirmReservation'   => 'Confirm Reservation',
@@ -135,6 +134,7 @@ return [
     'UploadResult'   => 'Upload Result',
     'Address'  =>  'Address',
     'Reservations'  =>  'Reservations',
+    'show_reservations'   => 'Show Reservations',
 
     'Appointments' => 'Appointments',
     'Create_appointment' => 'Create appointment',

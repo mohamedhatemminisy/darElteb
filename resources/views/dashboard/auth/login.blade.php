@@ -1,4 +1,10 @@
+@php
+$lang = LaravelLocalization::getCurrentLocale();
+@endphp
+
 @extends('layouts.login')
+
+
 
  @section('content')
 
@@ -7,28 +13,30 @@
         <div class="container-fluid">
         <div class="language position-relative">
           <ul class="list-unstyled">
+              
+          @if ($lang == 'ar')
               <li class="lang-en">
-                   <a>
+                   <a href="{{  LaravelLocalization::getLocalizedURL('en') }}">
                      <span class="lang-icon">
                      <i class="las la-globe la-lg" aria-hidden="true"></i>
                      </span>
                      <span class="lang-text"> 
-                       @lang('admin.en')                                       
-                     </span> 
-                 </a>
-          
-              </li>
-              <li class="lang-ar">
-                   <a>
-                     <span class="lang-icon">
-                     <i class="las la-globe la-lg" aria-hidden="true"></i>
-                     </span>
-                     <span class="lang-text"> 
-                       @lang('admin.ar')                                      
+                     @lang('admin.en')                                       
                     </span> 
                  </a>
               </li>
-            
+              @else
+              <li class="lang-ar">
+                   <a href="{{  LaravelLocalization::getLocalizedURL('ar') }}">
+                     <span class="lang-icon">
+                     <i class="las la-globe la-lg" aria-hidden="true"></i>
+                     </span>
+                     <span class="lang-text"> 
+                     @lang('admin.ar')                                         
+                     </span> 
+                 </a>
+              </li>
+              @endif
           </ul>
          
       </div>
