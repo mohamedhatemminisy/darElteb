@@ -73,7 +73,7 @@
                                 <div class="app-counter d-flex justify-content-between align-items-center">
                                        
                                         <div class="img-icon">
-                                               <img  src="{{asset('assets/admin/images/icons/visits-icon22.png')}}" class="brand-logo img-responsive lazyload" data-src="{{asset('assets/admin/images/icons/visits-icon.png')}}" alt="Logo">
+                                               <img  src="{{asset('assets/admin/images/icons/visits-icon.png')}}" class="brand-logo img-responsive lazyload" data-src="{{asset('assets/admin/images/icons/visits-icon.png')}}" alt="Logo">
                                         </div>        
                                         <div class="title">
                                             <h4>{{trans('admin.reservations_count')}}</h4>
@@ -210,7 +210,7 @@
                                           <div class="btn-group position-relative info">
                                             <span class="wrap-text"><i class="las la-edit la-lg" aria-hidden="true"></i></span>                                    
                                             <a href="{{route('tests.edit',$test -> id)}}" class="btn btn-sm btn-icon btn-info"  
-                                               data-toggle="tooltip" data-placement="top" data-trigger="hover" data-html="true" title="<span class='primary-tooltip'> @lang('admin.edit')</span>">
+                                               data-toggle="tooltip" data-placement="top" data-trigger="hover" data-html="true" title="<span class='info-tooltip'> @lang('admin.edit')</span>">
                                                  <i class="las la-edit la-lg" aria-hidden="true"></i>
                                             </a>
                                           </div>
@@ -218,7 +218,7 @@
                                           <div class="btn-group position-relative primary">
                                             <span class="wrap-text"><i class="las la-eye la-lg" aria-hidden="true"></i></span>
                                               <a href="{{route('tests.show',$test->id)}}" class="btn btn-sm btn-icon btn-primary" 
-                                               data-toggle="tooltip" data-placement="top" data-trigger="hover" data-html="true" title="<span class='info-tooltip'> @lang('admin.details')</span>">
+                                               data-toggle="tooltip" data-placement="top" data-trigger="hover" data-html="true" title="<span class='primary-tooltip'> @lang('admin.details')</span>">
                                                 <i class="las la-eye la-lg" aria-hidden="true"></i>
                                               </a>
                                           </div>    

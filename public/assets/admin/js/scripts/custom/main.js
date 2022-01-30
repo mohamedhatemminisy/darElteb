@@ -1,4 +1,3 @@
-(function ($) {
 
     "use strict";
  
@@ -7,10 +6,6 @@
 
 
     if ($(window).scrollTop()) {
-
-        // $("body").addClass("colored").animate({
-  
-        // }, 4000);
 
         $(".header-navbar").addClass("fixed-top").animate({
   
@@ -26,10 +21,6 @@
 
     } 
     else {
-
-        // $("body").removeClass("colored").animate({
-  
-        // }, 4000);
 
         $(".header-navbar").removeClass("fixed-top").animate({
   
@@ -94,14 +85,6 @@
 
   })
 
-  // alert
-
-  setTimeout(function() {
-    
-    $(".alert-dismissible").fadeOut(); 
-    
-  }, 4000);
-
 
    // auto complete
    $("input").attr("autocomplete","off");
@@ -109,24 +92,24 @@
     
    // single select
    $(".js-example-placeholder-single").select2({
-    placeholder:"Select",
+    placeholder:($("html").attr("lang")=="ar")?"أختر":"Select",
     allowClear: true,
     maximumSelectionLength: 2,
     "language": {
       "noResults": function(){
-          return "no results found";
+          return ($("html").attr("lang")=="ar")?"لا يوجد نتائج":"no results found";
       },
     }
    });
 
     //select2  multiple select
     $(".js-example-placeholder-multiple").select2({
-      placeholder: "Select",
+      placeholder:($("html").attr("lang")=="ar")?"أختر":"Select",
       tags: true,
       tokenSeparators: [',', ' '],
       "language": {
         "noResults": function(){
-            return "no results found";
+            return ($("html").attr("lang")=="ar")?"لا يوجد نتائج":"no results found";
         },
       }
      });
@@ -155,6 +138,15 @@
     })
 
 
+    // alert
+
+    setTimeout(function() {
+  
+      $(".alert-dismissible").fadeOut(); 
+  
+     }, 4000);
+
+
    // scroll to top
           
     $(window).scroll(function(){
@@ -176,7 +168,6 @@
      });
 
 
-})(jQuery);
 
 
 

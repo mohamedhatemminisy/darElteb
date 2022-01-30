@@ -127,7 +127,7 @@
                                                                <span class="wrap-text"><i class="las la-eye la-lg" aria-hidden="true"></i></span> 
                                                                     <a href="{{route('visit.details',$visit->id)}}"
                                                                       class="btn btn-sm btn-icon btn-primary" 
-                                                                      data-toggle="tooltip" data-placement="top" data-trigger="hover" data-html="true" title="<span class='info-tooltip'> @lang('admin.details')</span>">
+                                                                      data-toggle="tooltip" data-placement="top" data-trigger="hover" data-html="true" title="<span class='primary-tooltip'> @lang('admin.details')</span>">
                                                                       <i class="las la-eye la-lg" aria-hidden="true"></i>
                                                                     </a>
                                                            </div>             

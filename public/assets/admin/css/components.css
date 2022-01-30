@@ -2050,7 +2050,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu-footer .content {
 
 .tooltip > .tooltip-inner .info-tooltip{ 
 
-  color:#1169B0 !important; 
+  color:#62aef5 !important; 
 
 }
 .tooltip > .tooltip-inner .primary-tooltip{ 
@@ -4417,12 +4417,14 @@ tr.shown td.details-control {
   color: #fff !important;
   border: 2px solid #d4e7f866;
   box-shadow: 0 0 0 0.5rem #c5e4ffa3;
+  animation: scroll-white-pluse 1s ease-in-out infinite forwards;
+
 
 }
 .auto-scroll-to-top:hover {
 
   background-color: #fff;
-  box-shadow: 0 0 0 1rem #dbe8f4a3;
+  box-shadow: 0 0 0 0.2rem #dbe8f4a3;
   border-color: #eef5fc;
   color:#1169B0 !important;
 
@@ -4432,39 +4434,84 @@ tr.shown td.details-control {
   animation: scroll-top 0.8s ease-in-out infinite forwards;
 
 }
-/* scroll top  animate */
-@-webkit-keyframes scroll-top {
-  49% {
-    transform: translateY(10px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-@-moz-keyframes scroll-top {
-  49% {
-    transform: translateY(10px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-@keyframes scroll-top {
-  49% {
-    transform: translateY(10px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 .visible {
 
   transform: scale(1);
   opacity: 1;
 
 }
+/* scroll top  animate */
 
+@-webkit-keyframes scroll-white-pluse{
+
+  0%{
+     box-shadow: 0 0 0 0.5rem #c5e4ffa3
+ }
+ 50%{
+
+   box-shadow: 0 0 0 1rem #c5e4ffa3
+ }
+ 
+ 100%{
+     box-shadow: 0 0 0 0.5rem #c5e4ffa3
+ }
+
+
+}
+@-moz-keyframes scroll-white-pluse{
+
+ 0%{
+     box-shadow: 0 0 0 0.5rem #c5e4ffa3
+ }
+ 50%{
+
+   box-shadow: 0 0 0 1rem #c5e4ffa3
+ }
+ 
+ 100%{
+     box-shadow: 0 0 0 0.5rem #c5e4ffa3
+ }
+
+}
+@keyframes scroll-white-pluse{
+0%{
+     box-shadow: 0 0 0 0.5rem #c5e4ffa3
+ }
+ 50%{
+
+   box-shadow: 0 0 0 1rem #c5e4ffa3
+ }
+ 
+ 100%{
+     box-shadow: 0 0 0 0.5rem #c5e4ffa3
+ }
+
+}
+@-webkit-keyframes scroll-top {
+  49% {
+    transform: translateY(25px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+@-moz-keyframes scroll-top {
+  49% {
+    transform: translateY(25px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+@keyframes scroll-top {
+  49% {
+    transform: translateY(25px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+/* //scroll top  animate */
 /* //scroll to top */  
 /* scroll design */
 /* Chrome && Edge && Safari */

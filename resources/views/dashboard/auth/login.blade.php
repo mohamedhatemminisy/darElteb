@@ -3,12 +3,8 @@ $lang = LaravelLocalization::getCurrentLocale();
 @endphp
 
 @extends('layouts.login')
+@section('content')
 
-
-
- @section('content')
-
-   
     <section class="login">
         <div class="container-fluid">
         <div class="language position-relative">
@@ -54,11 +50,12 @@ $lang = LaravelLocalization::getCurrentLocale();
                             @lang('admin.admin_login')
                         </h3>
                     </div>
-                    @include('dashboard.includes.alerts.errors')
-                @include('dashboard.includes.alerts.success')
+                  
                     <div class="card-content">
                         <div class="card-body pt-0">
-                            <form  action="{{route('admin.post.login')}}" method="post"novalidate>
+                            @include('dashboard.includes.alerts.errors')
+                            @include('dashboard.includes.alerts.success')
+                            <form  action="{{route('admin.post.login')}}" method="post" novalidate>
                                 @csrf
 
                                 <div class="form-group form-icon position-relative">
@@ -68,10 +65,10 @@ $lang = LaravelLocalization::getCurrentLocale();
                                     <div class="form-control-position">
                                        <i class="las la-user-alt la-lg" aria-hidden="true"></i>
                                     </div>       
-                                    @error('email')
-                                     <span class="text-danger">{{$message}}</span>
-                                     @enderror
                                 </div>
+                                @error('email')
+                                     <span class="text-danger">{{$message}}</span>
+                                @enderror
                                 <div class="form-group form-icon position-relative">
                                     <label class="form-label">@lang('admin.password')</label>
                                     <input type="password" name="password" class="form-control"
@@ -79,10 +76,10 @@ $lang = LaravelLocalization::getCurrentLocale();
                                     <div class="form-control-position">
                                        <i class="las la-key la-lg" aria-hidden="true"></i>
                                     </div>
-                                    @error('password')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
                                 </div>
+                                @error('password')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
 
                                 <div class="btn-group position-relative gradient w-100">
                                    <span class="wrap-text"> @lang('admin.login')</span>
@@ -101,3 +98,17 @@ $lang = LaravelLocalization::getCurrentLocale();
     </section>
 
  @stop
+ @section('script')
+
+<script>
+// alert
+
+setTimeout(function() {
+  
+  $(".alert-dismissible").fadeOut(); 
+  
+}, 4000);
+
+</script>
+
+@stop

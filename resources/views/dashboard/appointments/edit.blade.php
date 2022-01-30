@@ -85,7 +85,7 @@
                                                       </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12">
-                                                       <div class="col form-group">
+                                                       <div class="form-group">
                                                         <label class="form-label">Time <span class="text-danger">*</span></label>
                                                         <input class="form-control" type="time" value="{{old('time', $appointment->time)}}" name="time">
                                                         @error("time" )

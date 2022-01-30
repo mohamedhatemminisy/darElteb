@@ -213,7 +213,7 @@
      CKEDITOR.replace('{{ $locale }}.editor1', {
             extraPlugins: 'bidi',
             // Setting default language direction to right-to-left.
-            contentsLangDirection: 'rtl',
+            contentsLangDirection:($("html").attr("lang")=="ar") ? "rtl":"ltr",
             height: 270,
             scayt_customerId: '1:Eebp63-lWHbt2-ASpHy4-AYUpy2-fo3mk4-sKrza1-NsuXy4-I1XZC2-0u2F54-aqYWd1-l3Qf14-umd',
             scayt_sLang: 'auto',
